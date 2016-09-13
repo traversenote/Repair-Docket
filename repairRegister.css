@@ -1,0 +1,45 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 80px;
+    background-color: #F5F5F5;
+    font-family: 'Roboto', sans-serif;
+}
+
+table#repairRegister {
+    width: 100%;
+}
+
+.titleRow{
+    height: 3px;
+    background-color: #99ccff;
+    align: center;
+    }
+    
+#topNav {
+    width: 100%;
+    background-color: #99ccff;
+    text-align: center;
+}
+#titleBar {
+    text-align: center;
+    font-size: 30px;
+}
+
+#mainContent{
+    margin: auto;
+    width: 75%;
+    border: solid;
+    padding: 10px;
+    
+}
+table.newRepairTable {
+    width: 50%;
+    border:1px;
+}
+table#docket {
+    width: 75%;
+}
