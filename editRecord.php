@@ -20,6 +20,7 @@ if($_GET["docket"]){
     $record =  $_GET["docket"];
     $query = "SELECT * from repairs where repair_ID=$record";
     $result = $conn->query($query);
+    
     while($row = $result->fetch_assoc()) {
         $repair_ID = $row["repair_ID"];
         $customer_name = $row["customer_name"];
@@ -30,12 +31,13 @@ if($_GET["docket"]){
         $product_accessories = $row["product_accessories"];
         $date = $row["repair_date"];
         $notes = $row["product_misc"];
+        $salesperson = $row["salesperson"];
     }
 }else{
 echo "no get record found";
 }
 ?>
-<form action="update.php" method="post">
+<form action="update.php?docket=<?php echo $repair_ID ?>" method="post">
 <table id="docket">
 <tr><td>
 <table id="repairHeader" width="100%">
@@ -51,7 +53,7 @@ echo "no get record found";
 <tr><td><?php echo "<input type='text' size='100' name='product' value='".$product_name."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Product Fault:</td></tr>
-<tr><td><?php echo "<input type='text' size='100' name='fault' name='fault' value='".addslashes($product_fault)."'>"; ?></td></tr>
+<tr><td><?php echo "<textarea rows='15' cols='100' name='fault' name='fault'>".addslashes($product_fault)."</textarea>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Included Accessories:</td></tr>
 <tr><td><?php echo "<input type='text' size='100' name='accessories' value='".$product_accessories."'>"; ?></td></tr>
@@ -61,32 +63,22 @@ echo "no get record found";
 <tr><td></td></tr>
 <tr class='titleRow'><td>You have been dealing with:</td></tr>
 <tr><td>
-<input type="submit" value="Submit">
-</form>
-<?php
-
-$salesperson = $row["salesperson"];
-switch ($salesperson){
-    case "JS":
-        $salesperson = "Jason Spears";
-        break;
-    case "RW":
-        $salesperson = "Richard White";
-        break;
-    case "WW":
-        $salesperson = "William Woodhall";
-        break;
-    case "MS":
-        $salesperson = "Manu Scott";
-        break;
-    default:
-        $salesperson = "The Listening Post Staff";
-        }
-echo $salesperson;        
-
-?>
+<select name="salesperson">
+    <option value="NONE" <?php if($salesperson = ''){ echo "selected"; } ?> >---SELECT----</option>
+    <option value="JS" <?php if ($salesperson = 'JS'){ echo "selected"; }  ?> >Jason</option>
+    <option value="RW" <?php if ($salesperson = 'RW'){ echo "selected"; }  ?> >Richard</option>
+    <option value="WW" <?php if ($salesperson = 'WW'){ echo "selected"; }  ?> >William</option>
+    <option value="MS" <?php if ($salesperson = 'MS'){ echo "selected"; }  ?> >Manu</option>
+</select>
+<?php echo $salesperson; ?>
 </td></tr>
 </table>
 </div>
+
+<div id="footNav">
+<input type="submit" value="Submit">
+</form>
+</div>
+
 </body>
 </html>

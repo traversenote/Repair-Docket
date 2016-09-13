@@ -26,17 +26,16 @@ $salesperson = test_input($_POST["salesperson"]);
 $repair_ID = test_input($_POST["repair_ID"]);
 $date = date("Y-m-d");
 
-$query = "update repairs set customer_name='$name', customer_phone='$phone', customer_address1='$address1', customer_address2='$address2, customer_email='$email', product_name='$product', product_fault='$fault', product_accessories=$accessories', product_misc='$notes' where repair_ID='$repair_ID'";
+$query = "update repairs set customer_name='$name', customer_phone='$phone', customer_address1='$address1', customer_address2='$address2', customer_email='$email', product_name='$product', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', salesperson='$salesperson' where repair_ID='$repair_ID'";
 
 if ($conn->query($query) == TRUE) {
-echo "Created successfully. The following record was created: </br>";
-echo "Name: $name </br>Date: $date</br>Phone Number: $phone </br>Address Line 1: $address1 </br>Address Line 2: $address2</br>Email: $email</br>Product: $product</br>Product Fault: $fault<br>Included Accessories: $accessories</br>Notes: $notes</br>Salesperson: $salesperson";
-} else {
-echo "Problem here boss:". $sql. "<br>". $conn->error;
+echo "Created successfully.";
+
 }
-
-
+require 'docket.php';
 ?>
+
+
 
 </div>
 

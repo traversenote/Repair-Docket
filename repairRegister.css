@@ -36,6 +36,14 @@ table#repairRegister {
     padding: 10px;
     
 }
+
+#footNav{
+    margin: auto;
+    width: 75%;
+    border: solid;
+    padding: 10px;
+}
+
 table.newRepairTable {
     width: 50%;
     border:1px;

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
 <link rel="stylesheet" href="repairRegister.css" />
 <title>New Repair Docket</title>
 </head>
@@ -27,9 +28,12 @@ $date = date("Y-m-d");
 
 $query = "insert into repairs (customer_name, customer_phone, customer_address1, customer_address2, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson) values ('$name', '$phone', '$address1', '$address2', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson')";
 
+
 if ($conn->query($query) == TRUE) {
-echo "Created successfully. The following record was created: </br>";
-echo "Name: $name </br>Date: $date</br>Phone Number: $phone </br>Address Line 1: $address1 </br>Address Line 2: $address2</br>Email: $email</br>Product: $product</br>Product Fault: $fault<br>Included Accessoreis: $accessories</br>Notes: $notes</br>Salesperson: $salesperson";
+echo "Created successfully.</br>";
+
+require 'docket.php';
+
 } else {
 echo "Problem here boss:". $sql. "<br>". $conn->error;
 }
