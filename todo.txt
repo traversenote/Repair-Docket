@@ -1,0 +1,7 @@
+TODO:
+Add a 'status' to track complete repairs.
+By default only show active repairs.
+Add 'show complete' functionality to search.
+Move search into mainContent div, inside displayControl div.
+Add 'mark repair as complete' field to both docket display and edit docket pages.
+Allow 'mark as incomplete' field.
