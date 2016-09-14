@@ -9,8 +9,16 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-table#repairRegister {
+table#repairRegister{
+    table-layout: fixed;
     width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+table#repairRegister   th, td {
+    border-bottom: 1px solid #ddd;
 }
 
 .titleRow{
@@ -27,6 +35,9 @@ table#repairRegister {
 #titleBar {
     text-align: center;
     font-size: 30px;
+}
+#search {
+    float: right;
 }
 
 #mainContent{
@@ -48,6 +59,7 @@ table.newRepairTable {
     width: 50%;
     border:1px;
 }
+
 table#docket {
     width: 75%;
 }

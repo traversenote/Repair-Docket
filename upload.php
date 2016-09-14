@@ -1,15 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang='en'>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-<link rel="stylesheet" href="repairRegister.css" />
+<meta http-equiv='content-type' content='text/html; charset=utf-8'>
+<link rel='stylesheet' href='repairRegister.css' />
 <title>New Repair Docket</title>
 </head>
 <body>
-<div id="topNav"><a href="index.php">Register Home</a> | <a href="newRepair.php">New Repair</a> | Search</div>
-<div id="titleBar">The Listening Post Repair Register</div>
-<div id="mainContent">
+<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a> | <form action='search.php' method='post'><input type='text' name='searchQuery'><input type='submit' value='Search'></form></div>
+<div id='titleBar'>The Listening Post Repair Register</div>
+<div id='mainContent'>
 <?php
 include 'dbCredentials.php';
 include 'functions.php';

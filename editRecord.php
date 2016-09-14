@@ -1,9 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang='en'>
 <head>
-
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="repairRegister.css" />
+<meta http-equiv='content-type' content='text/html; charset=utf-8'>
+<link rel='stylesheet' href='repairRegister.css' />
 <title>Repair Docket <?php echo htmlspecialchars($_GET["docket"]); ?></title>
 </head>
 <?php
@@ -11,14 +10,14 @@ include 'dbCredentials.php';
 include 'functions.php';
 ?>
 <body>
-<div id="topNav"><a href="index.php">Register Home</a> | <a href="newRepair.php">New Repair</a> | Search</div>
+<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a> | <form action='search.php' method='post'><input type='text' name='searchQuery'><input type='submit' value='Search'></form></div>
 <div id="titleBar">Create a new repair docket</div>
 <div id="mainContent">
 <?php
 
 if($_GET["docket"]){
     $record =  $_GET["docket"];
-    $query = "SELECT * from repairs where repair_ID=$record";
+    $query = "SELECT * FROM repairs WHERE repair_ID=$record";
     $result = $conn->query($query);
     
     while($row = $result->fetch_assoc()) {
@@ -29,9 +28,11 @@ if($_GET["docket"]){
         $product_name = $row["product_name"];
         $product_fault = $row["product_fault"];
         $product_accessories = $row["product_accessories"];
+        $updates = $row["status_updates"];
         $date = $row["repair_date"];
         $notes = $row["product_misc"];
         $salesperson = $row["salesperson"];
+
     }
 }else{
 echo "no get record found";
@@ -45,7 +46,7 @@ echo "no get record found";
 <tr><td><?php echo "<input type='hidden' name='repair_ID' value='".$repair_ID."'>".$repair_ID; ?></td><td> 0508 TO HIFI  |  0508 86 44 34</td></tr>
 <tr><td></td><td></td></tr>
 <tr class="titleRow"><td>Customer Name</td><td>Date</td></tr>
-<tr><td><?php echo "<input type='text' name='name' value='".$customer_name."'><br><input type='text' name='phone' value='".$customer_phone."'></br><input type='text' name='email' value='".$customer_email."'>"; ?></td><td><?php $date; ?></td></tr>
+<tr><td><?php echo "<input type='text' name='name' value='".$customer_name."' size='50'><br><input type='text' name='phone' value='".$customer_phone."' size='50'></br><input type='text' name='email' value='".$customer_email."'>"; ?></td><td><?php $date; ?></td></tr> size='50'
 <tr><td></td><td></td></tr>
 </td></tr></table>
 
@@ -59,18 +60,14 @@ echo "no get record found";
 <tr><td><?php echo "<input type='text' size='100' name='accessories' value='".$product_accessories."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Notes:</td></tr>
-<tr><td><?php echo "<input type='text' size='100' id='notes' value='".$notes."'>"; ?></td></tr>
+<tr><td><?php echo "<input type='text' size='100' name='notes' value='".$notes."'>"; ?></td></tr>
+<tr><td></td></tr>
+<tr class="titleRow"><td>Updates:</td></tr>
+<tr><td><?php echo "<input type='text' size='100' name='updates' value='".$updates."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class='titleRow'><td>You have been dealing with:</td></tr>
 <tr><td>
-<select name="salesperson">
-    <option value="NONE" <?php if($salesperson = ''){ echo "selected"; } ?> >---SELECT----</option>
-    <option value="JS" <?php if ($salesperson = 'JS'){ echo "selected"; }  ?> >Jason</option>
-    <option value="RW" <?php if ($salesperson = 'RW'){ echo "selected"; }  ?> >Richard</option>
-    <option value="WW" <?php if ($salesperson = 'WW'){ echo "selected"; }  ?> >William</option>
-    <option value="MS" <?php if ($salesperson = 'MS'){ echo "selected"; }  ?> >Manu</option>
-</select>
-<?php echo $salesperson; ?>
+<tr><td><?php echo "<input type='text' size='100' name='salesperson' value='".$salesperson."'>"; ?></td></tr>
 </td></tr>
 </table>
 </div>

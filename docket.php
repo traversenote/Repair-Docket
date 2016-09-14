@@ -22,29 +22,12 @@
 <tr class="titleRow"><td>Notes:</td></tr>
 <tr><td><?php echo $notes; ?></td></tr>
 <tr><td></td></tr>
+<tr class="titleRow"><td>Updates:</td></tr>
+<tr><td><?php echo $updates; ?></td></tr>
+<tr><td></td></tr>
 <tr class="titleRow"><td>You have been dealing with:</td></tr>
 <tr><td>
-
-<?php
-
-switch ($salesperson){
-    case "JS":
-        $salesperson = "Jason Spears";
-        break;
-    case "RW":
-        $salesperson = "Richard White";
-        break;
-    case "WW":
-        $salesperson = "William Woodhall";
-        break;
-    case "MS":
-        $salesperson = "Manu Scott";
-        break;
-    default:
-        $salesperson = "The Listening Post Staff";
-        }
-echo $salesperson;
-?>
+<tr><td><?php echo $salesperson; ?></td></tr>
 
 </td></tr>
 </table>
