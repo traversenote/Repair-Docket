@@ -35,7 +35,7 @@ $result = $conn->query($query);
 
 while($row = $result->fetch_assoc()) {
     
-    echo "<tr><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td>".$row["customer_name"]."</td><td>".$row["product_name"]."</a></td><td>".$row["repair_date"]."</td><td>".$row["status_updates"]."</td></tr>";  
+    echo "<tr><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td>".$row["customer_name"]."</td><td>".$row["product_name"]."</a></td><td>".$row["repair_date"]."</td><td>".$row["updates"]."</td></tr>";  
 
 }
 echo "</table>";

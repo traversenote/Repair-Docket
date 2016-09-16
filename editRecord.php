@@ -28,14 +28,21 @@ if($_GET["docket"]){
         $product_name = $row["product_name"];
         $product_fault = $row["product_fault"];
         $product_accessories = $row["product_accessories"];
-        $updates = $row["status_updates"];
+        $updates = $row["updates"];
         $date = $row["repair_date"];
         $notes = $row["product_misc"];
         $salesperson = $row["salesperson"];
-
+        $status = $row["status"];
+        
     }
 }else{
 echo "no get record found";
+}
+
+if ($status != 'complete'){
+    $checked='';
+}else{
+    $checked='checked';
 }
 ?>
 <form action="update.php?docket=<?php echo $repair_ID ?>" method="post">
@@ -46,7 +53,7 @@ echo "no get record found";
 <tr><td><?php echo "<input type='hidden' name='repair_ID' value='".$repair_ID."'>".$repair_ID; ?></td><td> 0508 TO HIFI  |  0508 86 44 34</td></tr>
 <tr><td></td><td></td></tr>
 <tr class="titleRow"><td>Customer Name</td><td>Date</td></tr>
-<tr><td><?php echo "<input type='text' name='name' value='".$customer_name."' size='50'><br><input type='text' name='phone' value='".$customer_phone."' size='50'></br><input type='text' name='email' value='".$customer_email."'>"; ?></td><td><?php $date; ?></td></tr> size='50'
+<tr><td><?php echo "<input type='text' name='name' value='".$customer_name."' size='50'><br><input type='text' name='phone' value='".$customer_phone."' size='50'></br><input type='text' name='email' value='".$customer_email."'>"; ?></td><td><?php $date; ?></td></tr>
 <tr><td></td><td></td></tr>
 </td></tr></table>
 
@@ -69,6 +76,10 @@ echo "no get record found";
 <tr><td>
 <tr><td><?php echo "<input type='text' size='100' name='salesperson' value='".$salesperson."'>"; ?></td></tr>
 </td></tr>
+<tr><td><label><input type='checkbox' name='status' value='complete'<?php echo " ".$checked; ?> >Complete</label></td></tr>
+</td></tr>
+
+
 </table>
 </div>
 

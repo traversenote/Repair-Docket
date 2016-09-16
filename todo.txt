@@ -1,11 +1,27 @@
 TODO:
-Add a 'status' to track complete repairs.
+
 By default only show active repairs.
 Add 'show complete' functionality to search.
 Move search into mainContent div, inside displayControl div.
 Add 'mark repair as complete' field to both docket display and edit docket pages.
 Allow 'mark as incomplete' field.
 Create labels under customer name when editing record
-Expand phone field to at least 15 characters. 10 isn't enough.
 Make it so you can change which fields are visible.
 Make it pretty.
+
+
+Add clickable rows:
+<tbody>
+    <tr class='clickable-row' data-href='url://'>
+        <td>Blah Blah</td>
+        <td>1234567</td>
+        <td>£158,000</td>
+    </tr>
+</tbody>
+
+
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
+});

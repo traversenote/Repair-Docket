@@ -1,4 +1,10 @@
-
+<?php
+if($status != 'complete'){
+    $displayRepairState = "Active";
+}else{
+    $displayRepairState = "Complete";
+}
+?>
 <table id="docket">
 <tr><td>
 <table id="repairHeader" width="100%">
@@ -28,6 +34,9 @@
 <tr class="titleRow"><td>You have been dealing with:</td></tr>
 <tr><td>
 <tr><td><?php echo $salesperson; ?></td></tr>
+<tr><td>
+<tr><td><?php echo "Status: ".$displayRepairState; ?></br>
+<a href="record.php?docket=<?php echo $repair_ID ?>&state=complete">Mark this repair as Complete</a></td></tr>
 
 </td></tr>
 </table>

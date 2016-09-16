@@ -1,4 +1,4 @@
-create table repairs (repair_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, customer_name VARCHAR(20), customer_phone VARCHAR(10), customer_address1 VARCHAR(20), customer_address2 VARCHAR(20), customer_email VARCHAR(20), repair_date DATE, product_name VARCHAR(50), product_fault VARCHAR(100), product_accessories VARCHAR(100), product_misc VARCHAR(100), salesperson VARCHAR(2), status_updates VARCHAR(100));
+create table repairs (repair_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, customer_name VARCHAR(100), customer_phone VARCHAR(15), customer_address1 VARCHAR(100), customer_address2 VARCHAR(100), customer_email VARCHAR(100), repair_date DATE, product_name VARCHAR(100), product_fault VARCHAR(500), product_accessories VARCHAR(100), product_misc VARCHAR(100), salesperson VARCHAR(2), updates VARCHAR(500), status INT(1));
 
 
 repair_ID

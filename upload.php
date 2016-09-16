@@ -25,7 +25,7 @@ $notes = test_input($_POST["notes"]);
 $salesperson = test_input($_POST["salesperson"]);
 $date = date("Y-m-d");
 
-$query = "insert into repairs (customer_name, customer_phone, customer_address1, customer_address2, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson) values ('$name', '$phone', '$address1', '$address2', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson')";
+$query = "insert into repairs (customer_name, customer_phone, customer_address1, customer_address2, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson, status) values ('$name', '$phone', '$address1', '$address2', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson', 'active')";
 
 
 if ($conn->query($query) == TRUE) {

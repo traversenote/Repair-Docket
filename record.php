@@ -9,11 +9,22 @@
 include 'dbCredentials.php';
 include 'functions.php';
 
+if($_GET["docket"]) {
+    $record = $_GET["docket"];
+    
+    if($_GET["state"]) {
+        $status = test_input($_GET["state"]);
+        if($status = "complete"){        
+            $query = "UPDATE repairs SET status='$status' where repair_ID=$record";
+            $result = $conn->query($query);
+  
+        }
+    }
 
-if($_GET["docket"]){
-    $record =  $_GET["docket"];
+
     $query = "SELECT * FROM repairs WHERE repair_ID=$record";
     $result = $conn->query($query);
+    
     while($row = $result->fetch_assoc()) {
         $repair_ID = $row["repair_ID"];
         $name = $row["customer_name"];
@@ -25,8 +36,10 @@ if($_GET["docket"]){
         $date = $row["repair_date"];
         $notes = $row["product_misc"];
         $salesperson = $row["salesperson"];
-        $updates = $row["status_updates"];
+        $updates = $row["updates"];
+        $status = $row["status"];
     }
+    
 }else{
 echo "no get record found";
 }
