@@ -11,6 +11,8 @@ salesperson VARCHAR(100),
 updates VARCHAR(500), 
 status VARCHAR(15),
 tested VARCHAR(10));
+completeDate DATE;
+
 
 repairsApp
 wellingtonRepairs

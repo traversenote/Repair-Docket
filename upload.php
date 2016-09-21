@@ -48,6 +48,12 @@ echo "Problem here boss:". $sql. "<br>". $conn->error;
 ?>
 
 </div>
-
+<div id='footNav'>
+<div id='navInner'>
+<div class='navCell'><a href="editRecord.php?docket=<?php echo $repair_ID ?>">Edit this Record</a></div>
+<div class='navCell'><a href='print.php?docket=<?php echo $repair_ID ?>'>Print to PDF</a></div>
+<div class='navCell'><a href="record.php?docket=<?php echo $repair_ID ?>&state=complete">Mark this repair as Complete</a></div>
+</div>
+</div>
 </body>
 </html>

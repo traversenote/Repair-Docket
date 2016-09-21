@@ -1,7 +1,7 @@
 TODO:
 
 Allow 'mark as incomplete' field.
-
+Track Date completed.
 Change date display format.
 
 

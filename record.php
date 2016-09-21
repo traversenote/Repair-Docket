@@ -14,8 +14,9 @@ if($_GET["docket"]) {
     
     if($_GET["state"]) {
         $status = test_input($_GET["state"]);
-        if($status = "complete"){        
-            $query = "UPDATE repairs SET status='$status' where repair_ID=$record";
+        if($status = "complete"){
+            $date = date("Y-m-d");
+            $query = "UPDATE repairs SET status='$status', completeDate='$date' where repair_ID=$record";
             $result = $conn->query($query);
   
         }
@@ -39,6 +40,7 @@ if($_GET["docket"]) {
         $tested = $row["tested"];
         $updates = $row["updates"];
         $status = $row["status"];
+        $completeDate = $row["completeDate"];
     }
     
 }else{

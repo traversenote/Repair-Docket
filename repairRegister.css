@@ -80,7 +80,6 @@ table#repairRegister th, td {
 
 .navCell{
         float:left;/*fix for  buggy browsers*/
-        display:table-column;
         width:400px;
 }
 #navInner{
@@ -117,3 +116,4 @@ table.newRepairTable {
     float: left;
     width: 33.3%;
 }
+%
