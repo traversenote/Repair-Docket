@@ -14,20 +14,20 @@
     <fieldset>
         <legend>Customer Information</legend>
         <table class='newRepairTable'>
-            <tr><td>Customer Name:</td><td><input type='text' name='name' rows='50'></tr></td>
-            <tr><td>Phone Number: </td><td><input type='text' name='phone'></tr></td>
+            <tr><td>Customer Name:</td><td><input type='text' name='name' rows='50' required></tr></td>
+            <tr><td>Phone Number: </td><td><input type='text' name='phone' required></tr></td>
             <tr><td>Email:</td><td><input type='text' name='email'></tr></td>
         </table>
     </fieldset>
     <fieldset>
         <legend>Product Info</legend>
         <table  class='newRepairTable'>
-            <tr><td>Product Name:</td><td><input type='text' name='product'></tr></td>
-            <tr><td>Fault:</td><td><textarea name='fault' rows='10' cols='30' name='fault'></textarea></tr></td>
+            <tr><td>Product Name:</td><td><input type='text' name='product' required></tr></td>
+            <tr><td>Fault:</td><td><textarea name='fault' rows='10' cols='30' name='fault' required></textarea></tr></td>
             <tr><td>Included Accessories:</td><td><input type='text' name='accessories'></tr></td>
             <tr><td>Notes:</td><td><input type='text' name='notes'></tr></td>
             <tr><td>Tested in store?</td><td><input type='text' name='tested'></tr></td>
-            <tr><td>Salesperson:</td><td><input type='text' name='salesperson'></tr></td>
+            <tr><td>Salesperson:</td><td><input type='text' name='salesperson' required></tr></td>
         </table>
     </fieldset>
         <input type='submit' value='Submit'>
