@@ -34,7 +34,7 @@ if($_GET["docket"]) {
         $product = $row["product_name"];
         $fault = $row["product_fault"];
         $accessories = $row["product_accessories"];
-        $date = $row["repair_date"];
+        $date = date('d M Y', strtotime($row["repair_date"]));
         $notes = $row["product_misc"];
         $salesperson = $row["salesperson"];
         $tested = $row["tested"];

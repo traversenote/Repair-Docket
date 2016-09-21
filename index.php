@@ -91,7 +91,7 @@
             }else{
                 $active = "Complete";
             }
-            echo "<tr><td><a href=print.php?docket=".$row["repair_ID"]."><img src='images/pdf.jpg' width='25' alt='Print to PDF'></a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_date"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>";  
+            echo "<tr><td><a href=print.php?docket=".$row["repair_ID"]."><img src='images/pdf.jpg' width='25' alt='Print to PDF'></a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".date('d M Y', strtotime($row["repair_date"]))."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>";  
         }
         ?>
     </table>

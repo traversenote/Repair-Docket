@@ -29,7 +29,7 @@ if($_GET["docket"]){
         $product_fault = $row["product_fault"];
         $product_accessories = $row["product_accessories"];
         $updates = $row["updates"];
-        $date = $row["repair_date"];
+        $date = date('d M Y', strtotime($row["repair_date"]));
         $notes = $row["product_misc"];
         $tested = $row["tested"];
         $salesperson = $row["salesperson"];
@@ -54,7 +54,7 @@ if ($status != 'complete'){
 <tr><td><?php echo "<input type='hidden' name='repair_ID' value='".$repair_ID."'>".$repair_ID; ?></td><td> 0508 TO HIFI  |  0508 86 44 34</td></tr>
 <tr><td></td><td></td></tr>
 <tr class="titleRow"><td>Customer Name</td><td>Date</td></tr>
-<tr><td><?php echo "<input type='text' name='name' value='".$customer_name."' size='50'><br><input type='text' name='phone' value='".$customer_phone."' size='50'></br><input type='text' name='email' value='".$customer_email."'>"; ?></td><td><?php $date; ?></td></tr>
+<tr><td><?php echo "<input type='text' name='name' value='".$customer_name."' size='50'><br><input type='text' name='phone' value='".$customer_phone."' size='50'></br><input type='text' name='email' value='".$customer_email."'></td><td>".$date; ?></td></tr>
 <tr><td></td><td></td></tr>
 </td></tr></table>
 

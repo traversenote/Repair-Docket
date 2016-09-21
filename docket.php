@@ -12,7 +12,7 @@ if($status != 'complete'){
 <tr><td><?php echo $repair_ID; ?></td><td> 0508 TO HIFI  |  0508 86 44 34</td></tr>
 <tr><td></td><td></td></tr>
 <tr class='titleRow'><td>Customer Name</td><td>Date</td></tr>
-<tr><td><?php echo $name."<br>".$phone."</br>".$email; ?></td><td><?php $date; ?></td></tr>
+<tr><td><?php echo $name."<br>".$phone."</br>".$email."</td><td>".$date; ?></td></tr>
 <tr><td></td><td></td></tr>
 </td></tr></table>
 

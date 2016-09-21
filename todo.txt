@@ -1,8 +1,8 @@
 TODO:
 
 Allow 'mark as incomplete' field.
-Track Date completed.
-Change date display format.
+
+standardize variable handling. The index page uses the variables inline, where they are declared separately in other instances.
 
 
 
