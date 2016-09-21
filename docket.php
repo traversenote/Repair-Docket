@@ -17,26 +17,25 @@ if($status != 'complete'){
 </td></tr></table>
 
 <tr class="titleRow"><td>Product Details:</td></tr>
-<tr><td><?php echo $product; ?></td></tr>
+<tr id='docketDetails'><td><?php echo $product; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Product Fault:</td></tr>
-<tr><td><?php echo $fault; ?></td></tr>
+<tr id='docketFault'><td><?php echo $fault; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Included Accessories:</td></tr>
-<tr><td><?php echo $accessories; ?></td></tr>
+<tr id='docketAccessories'><td><?php echo $accessories; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Notes:</td></tr>
 <tr><td><?php echo $notes; ?></td></tr>
-<tr><td></td></tr>
+<tr id='docketNotes'><td></td></tr>
 <tr class="titleRow"><td>Updates:</td></tr>
 <tr><td><?php echo $updates; ?></td></tr>
-<tr><td></td></tr>
+<tr id='docketUpdates'><td></td></tr>
 <tr class="titleRow"><td>You have been dealing with:</td></tr>
 <tr><td>
 <tr><td><?php echo $salesperson; ?></td></tr>
 <tr><td>
-<tr><td><?php echo "Status: ".$displayRepairState; ?></br>
-<a href="record.php?docket=<?php echo $repair_ID ?>&state=complete">Mark this repair as Complete</a></td></tr>
+<tr><td><?php echo "Status: ".$displayRepairState; ?></br></td></tr>
 
 </td></tr>
 </table>

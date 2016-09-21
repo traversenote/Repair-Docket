@@ -6,9 +6,10 @@
 <title>Create a New Repair Docket</title>
 </head>
 <body>
-<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a> | <form action='search.php' method='post'><input type='text' name='searchQuery'><input type='submit' value='Search'></form></div>
+<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a></div>
 <div id='titleBar'>Create a new repair docket</div>
 <div id='mainContent'>
+
 <form action='upload.php' method='post'>
     <fieldset>
         <legend>Customer Information</legend>

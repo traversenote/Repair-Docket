@@ -8,5 +8,6 @@ function test_input($data) {
   return $data;
   }
   
-  
+echo "<script>\nfunction change(){\ndocument.getElementById('displayFilter').submit();\n}\n</script>\n";
+
 ?>

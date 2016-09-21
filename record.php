@@ -46,10 +46,74 @@ echo "no get record found";
 
 ?>
 <body>
-<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a> | <form action='search.php' method='post'><input type='text' name='searchQuery'><input type='submit' value='Search'></form></div>
-<div id="titleBar">Repair # <?php echo $repair_ID ?></div>
+<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a></div><div id="titleBar">Repair # <?php echo $repair_ID ?></div>
 <div id="mainContent">
-
+<div id='displayControl'>
+        <?php
+        if(isset($_GET['display'])){
+            $displayFilter = test_input($_GET['display']);
+            $displayOrder = test_input($_GET['order']);
+            switch($displayOrder) {
+                case 'invert':
+                    $displayOrder = 'ORDER BY repair_ID DESC';
+                    $normalOrder = '';
+                    $invertOrder = 'selected';
+                    break;
+                default:
+                    $displayOrder = 'ORDER BY repair_ID ASC';
+                    $normalOrder = 'selected';
+                    $invertOrder = '';
+                    break;
+            }
+            switch($displayFilter) {
+                case 'all':
+                    $statusFilter = '';
+                    $activeDisplay = '';
+                    $allDisplay = 'selected';
+                    $completeDisplay = '';
+                    break;
+                case 'complete':
+                    $statusFilter = "WHERE status='complete'";
+                    $activeDisplay = '';
+                    $allDisplay = '';
+                    $completeDisplay = 'selected';
+                    break;
+                default:
+                    $statusFilter = "WHERE status!='complete'";
+                    $activeDisplay = 'selected';
+                    $allDisplay = '';
+                    $completeDisplay = '';
+                    break;
+            }
+                
+        }else{
+            $statusFilter = "WHERE status!='complete'";
+            $activeDisplay = 'selected';
+            $allDisplay = '';
+            $completeDisplay = '';
+            $displayOrder = 'ORDER BY repair_ID DESC';
+            $normalOrder = 'selected';
+            $invertOrder = '';
+        }
+        ?>
+<!--- Displays the Choosers for display priority --->
+        <form id='displayFilter' action='index.php' method='get' onchange='change()' display='inline'>
+        <select name='display'>
+            <option value='active' <?php echo $activeDisplay; ?> >Active Only</option>
+            <option value='all' <?php echo $allDisplay; ?> >All Repairs</option>
+            <option value='complete' <?php echo $completeDisplay; ?> >Complete Repairs</option>
+        </select>
+        <select name='order'>
+            <option value='normal' <?php echo $normalOrder; ?> >OldestFirst</option>
+            <option value='invert' <?php echo $invertOrder; ?> >Newest First</option>
+        </select>
+        </form>
+        <div id='search' float='right'>
+            <form action='search.php' method='post' display='inline'>
+                <input type='text' name='searchQuery'><input type='submit' value='Search'>
+            </form>
+        </div>
+    </div>
 <?php
 
 require 'docket.php';
@@ -57,6 +121,8 @@ require 'docket.php';
 ?>
 </div>
 
-<div id="footNav"><a href="editRecord.php?docket=<?php echo $repair_ID ?>">Edit this Record</a></div>
+<div id="footNav">
+<div id='editButton'><a href="editRecord.php?docket=<?php echo $repair_ID ?>">Edit this Record</a></div>
+<div id='completeButton'><a href="record.php?docket=<?php echo $repair_ID ?>&state=complete">Mark this repair as Complete</a></div></div>
 </body>
 </html>

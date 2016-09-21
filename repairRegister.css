@@ -15,10 +15,28 @@ table#repairRegister{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
 }
-table#repairRegister   th, td {
+table#repairRegister th, td {
+    
+}
+#repairRegister{
+    width:100%; 
+    border-collapse:collapse; 
+}
+#repairRegister td { 
+    padding:7px; 
+/*    border:#4e95f4 1px solid; */
     border-bottom: 1px solid #ddd;
+}
+#repairRegister td a{
+    display: block;
+    text-decoration: none;
+}
+/* Define the default color for all the table rows */
+
+/* Define the hover highlight color for the table row */
+#repairRegister tr:hover {
+    background-color: #ffff99;
 }
 
 .titleRow{
@@ -45,12 +63,12 @@ table#repairRegister   th, td {
     width: 75%;
     border: solid;
     padding: 10px;
-    
 }
 
 #footNav{
     margin: auto;
     width: 75%;
+    height: 20px;
     border: solid;
     padding: 10px;
 }
@@ -60,6 +78,24 @@ table.newRepairTable {
     border:1px;
 }
 
-table#docket {
-    width: 75%;
+#docket {
+    width: 85%;
+    margin: auto;
+}
+#displayFilter {
+    display: inline;
+    float: left;
+}
+#displayControl {
+    height: 40px;
+}
+
+#repairHeader {
+    height:250px;
+}
+#completeButton {
+    float: right;
+}
+#editButton {
+    float: left;
 }
