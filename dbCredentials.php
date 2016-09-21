@@ -1,9 +1,9 @@
 <?php
 // Credentials for connecting to the Database
 $servername = "localhost";
-$username = "testuser";
-$password = "password";
-$dbname = "test";
+$username = "repairsApp";
+$password = "wellingtonRepairs";
+$dbname = "repairs";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -10,7 +10,7 @@ include 'dbCredentials.php';
 include 'functions.php';
 ?>
 <body>
-<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a> | <form action='search.php' method='post'><input type='text' name='searchQuery'><input type='submit' value='Search'></form></div>
+<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a></div>
 <div id="titleBar">Create a new repair docket</div>
 <div id="mainContent">
 <?php
@@ -31,6 +31,7 @@ if($_GET["docket"]){
         $updates = $row["updates"];
         $date = $row["repair_date"];
         $notes = $row["product_misc"];
+        $tested = $row["tested"];
         $salesperson = $row["salesperson"];
         $status = $row["status"];
         
@@ -71,6 +72,9 @@ if ($status != 'complete'){
 <tr><td></td></tr>
 <tr class="titleRow"><td>Updates:</td></tr>
 <tr><td><?php echo "<input type='text' size='100' name='updates' value='".$updates."'>"; ?></td></tr>
+<tr><td></td></tr>
+<tr class="titleRow"><td>Tested in Store?</td></tr>
+<tr><td><?php echo "<input type='text' size='100' name='tested' value='".$tested."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class='titleRow'><td>You have been dealing with:</td></tr>
 <tr><td>

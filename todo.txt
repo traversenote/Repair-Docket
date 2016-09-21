@@ -1,13 +1,9 @@
 TODO:
 
-By default only show active repairs.
-Add 'show complete' functionality to search.
-Move search into mainContent div, inside displayControl div.
-Add 'mark repair as complete' field to both docket display and edit docket pages.
 Allow 'mark as incomplete' field.
-Create labels under customer name when editing record
-Make it so you can change which fields are visible.
-Make it pretty.
+
+Change date display format.
+
 
 
 Add clickable rows:

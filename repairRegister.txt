@@ -1,11 +1,23 @@
-create table repairs (repair_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, customer_name VARCHAR(100), customer_phone VARCHAR(15), customer_address1 VARCHAR(100), customer_address2 VARCHAR(100), customer_email VARCHAR(100), repair_date DATE, product_name VARCHAR(100), product_fault VARCHAR(500), product_accessories VARCHAR(100), product_misc VARCHAR(100), salesperson VARCHAR(2), updates VARCHAR(500), status INT(1));
+create table repairs (repair_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+customer_name VARCHAR(100),
+customer_phone VARCHAR(15),
+customer_email VARCHAR(100),
+repair_date DATE,
+product_name VARCHAR(100),
+product_fault VARCHAR(500),
+product_accessories VARCHAR(100),
+product_misc VARCHAR(100),
+salesperson VARCHAR(100),
+updates VARCHAR(500), 
+status VARCHAR(15),
+tested VARCHAR(10));
 
+repairsApp
+wellingtonRepairs
 
 repair_ID
 customer_name
 customer_phone
-customer_address1
-customer_address2
 customer_email
 repair_date
 product_name
@@ -13,7 +25,9 @@ product_fault
 product_accessories
 product_misc 
 salesperson
-status_updates
+updates
+status
+tested
 
 
 insert into repairs (customer_name, customer_phone, customer_address1, customer_address2, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson);

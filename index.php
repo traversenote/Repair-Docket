@@ -9,6 +9,7 @@
     include 'functions.php';
 ?>
 </head>
+<body>
 <div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a></div>
 <div id='titleBar'>The Listening Post Repair Register</div>
 <div id='mainContent'>
@@ -57,8 +58,8 @@
             $allDisplay = '';
             $completeDisplay = '';
             $displayOrder = 'ORDER BY repair_ID DESC';
-            $normalOrder = 'selected';
-            $invertOrder = '';
+            $normalOrder = '';
+            $invertOrder = 'selected';
         }
         ?>
 <!--- Displays the Choosers for display priority --->
@@ -80,7 +81,7 @@
         </div>
     </div>
     <table id='repairRegister'>
-        <tr class="titleRow"><td>Repair ID</td><td>Customer Name</td><td>Item</td><td>Date</td><td>Updates</td><td>Status</td></tr>
+        <tr class="titleRow"><td width='25px'></td><td>Repair ID</td><td>Customer Name</td><td>Item</td><td>Date</td><td>Updates</td><td>Status</td></tr>
         <?php 
         $query = "SELECT * FROM repairs $statusFilter $displayOrder";
         $result = $conn->query($query);
@@ -90,7 +91,7 @@
             }else{
                 $active = "Complete";
             }
-            echo "<tr><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_date"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>";  
+            echo "<tr><td><a href=print.php?docket=".$row["repair_ID"]."><img src='images/pdf.jpg' width='25' alt='Print to PDF'></a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_date"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>";  
         }
         ?>
     </table>

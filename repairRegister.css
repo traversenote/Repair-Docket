@@ -27,6 +27,10 @@ table#repairRegister th, td {
     padding:7px; 
 /*    border:#4e95f4 1px solid; */
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 #repairRegister td a{
     display: block;
@@ -66,11 +70,22 @@ table#repairRegister th, td {
 }
 
 #footNav{
+    display: table;
     margin: auto;
     width: 75%;
     height: 20px;
     border: solid;
     padding: 10px;
+}
+
+.navCell{
+        float:left;/*fix for  buggy browsers*/
+        display:table-column;
+        width:400px;
+}
+#navInner{
+    width: 85%;
+    margin: auto;
 }
 
 table.newRepairTable {
@@ -93,9 +108,12 @@ table.newRepairTable {
 #repairHeader {
     height:250px;
 }
+
 #completeButton {
     float: right;
+    width: 33.3%;
 }
 #editButton {
     float: left;
+    width: 33.3%;
 }
