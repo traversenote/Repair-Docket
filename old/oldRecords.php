@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link rel="stylesheet" href="repairRegister.css" />
+<link rel="stylesheet" href="../repairRegister.css" />
 <title>New Repair Docket</title>
 </head>
 <body>
@@ -13,11 +13,11 @@
 
 
 <?php
-include 'dbCredentials.php';
-include 'functions.php';
+include '../dbCredentials.php';
+include '../functions.php';
 
 $row = 0;
-if (($handle = fopen("OldRepairs.csv", "r")) !== FALSE) {
+if (($handle = fopen("OldRepairsComplete.csv", "r")) !== FALSE) {
 
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $cells = 0;
@@ -44,12 +44,24 @@ while ($repairRecord <= count($record)){
     $product = test_input($record[$repairRecord][5]);
     $fault = test_input($record[$repairRecord][6]);
     $accessories = test_input($record[$repairRecord][7]);
+    $updates = test_input($record[$repairRecord][8]);
+    $notes = test_input($record[$repairRecord][9]);
+    $salesperson = test_input($record[$repairRecord][10]);
+    $tested = test_input($record[$repairRecord][11]);
+    $completeDate = test_input($record[$repairRecord][12]);
+    
+    $dateOld = $date;
+    $date = explode(' ', $date);
+    $date = explode('/', $date[0]);
+    $dateClean = $date[2]."-".$date[0]."-".$date[1];
 
-    $notes = test_input($record[$repairRecord][8]);
-    $salesperson = test_input($record[$repairRecord][9]);
-    $tested = test_input($record[$repairRecord][10]);
+    if(isset($completeDate)){
+    $completeDate = explode('/', $completeDate);
+    $completeDateTidy = $completeDate[2]."-".$completeDate[1]."-".$completeDate[0];
+    }
 
-/*    
+    /*
+  
     echo "Repair ID = ".$repairID."<br>";
     echo "Name = ".$name."<br>";
     echo "Phone = ".$phone."<br>";
@@ -62,10 +74,10 @@ while ($repairRecord <= count($record)){
     echo "Salesperson = ".$salesperson."<br>";
     echo "Tested? = ".$tested."<br>";
 
-*/
 
+*/
     
-$query = "insert into repairs (repair_ID, customer_name, customer_phone, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson, tested, status) values ('$repairID', '$name', '$phone', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson', '$tested', 'active')";
+$query = "insert into repairs (repair_ID, customer_name, customer_phone, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson, updates, tested, status, completeDate) values ('$repairID', '$name', '$phone', '$email', '$dateClean', '$product', '$fault', '$accessories', '$notes', '$salesperson', '$updates', '$tested', 'complete', '$completeDateTidy')";
     
 if ($conn->query($query) == TRUE) {
 echo "Repair ".$repairID." created successfully.</br>";
@@ -78,6 +90,8 @@ echo "Problem here boss:". $sql. "<br>".$conn->error;
     
     $repairRecord++;
 }
+
+
 
 
 /*
