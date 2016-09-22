@@ -63,6 +63,8 @@ if($_GET["docket"]) {
         $updates = $row["updates"];
         $tested = $row["tested"];
         $status = $row["status"];
+        $completeDate = date('d M Y', strtotime($row["completeDate"]));
+
     }
     
 }else{
@@ -117,5 +119,9 @@ $pdf->Cell(150,7,'You have been dealing with:', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
 $pdf->multiCell(150,7,"$salesperson", 0);
+if($status != 'active'){
+    $pdf->SetFont('Arial', '', 10);
+    $pdf->multiCell(150,7,"This is a reprinted docket. This repair was marked as complete on $completeDate", 0);
+}
 $pdf->Output();
 ?>

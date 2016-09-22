@@ -11,6 +11,9 @@ include 'dbCredentials.php';
 include 'functions.php';
 
 $searchQuery = test_input($_POST['searchQuery']);
+$displayFilter = test_input($_POST['display']);
+$displayOrder = test_input($_POST['order']);
+
 ?>
 <div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a></div>
 <div id="titleBar">The Listening Post Repair Register : Search Results</div>
@@ -20,6 +23,9 @@ $searchQuery = test_input($_POST['searchQuery']);
     <div id='displayControl'>
     <!--- Grabs the variables to configure display priority --->
         <?php
+        $page = test_input($_GET['page']);
+        if($page <= 0){ $page=1; }
+        $displayNum = test_input($_GET['displayNum']);
         if(isset($_GET['display'])){
             $displayFilter = test_input($_GET['display']);
             $displayOrder = test_input($_GET['order']);
@@ -56,7 +62,24 @@ $searchQuery = test_input($_POST['searchQuery']);
                     $completeDisplay = '';
                     break;
             }
-                
+            switch($displayNum) {
+                case '100':
+                    $dNum50 = '';
+                    $dNum100= 'selected';
+                    $dnum200 = '';
+                    break;
+                case '200':
+                    $dNum50 = '';
+                    $dNum100= '';
+                    $dnum200 = 'selected';
+                    break;
+                default:
+                    $displayNum = '50';
+                    $dNum50 = 'selected';
+                    $dNum100 = '';
+                    $dnum200 = '';
+                    break;
+            }
         }else{
             $statusFilter = "AND status!='complete'";
             $activeDisplay = 'selected';
@@ -65,6 +88,11 @@ $searchQuery = test_input($_POST['searchQuery']);
             $displayOrder = 'ORDER BY repair_ID DESC';
             $normalOrder = 'selected';
             $invertOrder = '';
+            $displayNum = '50';
+            $dNum50 = 'selected';
+            $dNum100 = '';
+            $dnum200 = '';
+            $page = '1';
         }
         ?>
         <!--- Displays the Choosers for display priority --->
@@ -79,17 +107,30 @@ $searchQuery = test_input($_POST['searchQuery']);
                 <option value='invert' <?php echo $invertOrder; ?> >Newest First</option>
             </select>
             <input type='hidden' name='searchQuery' value='<?php echo $searchQuery; ?>'>
+            <span id='pageDiv'>Page <?php echo $page ?></span>
+            <button type='submit' name='page' value='<?php echo $page - 1; ?>'>Previous Page</button>
+            <select name='displayNum'>
+            <option value='50' <?php echo $dNum50; ?> >50</option>
+            <option value='100' <?php echo $dNum100; ?> >100</option>
+            <option value='200' <?php echo $dNum200; ?> >200</option>
+        </select>
+        <button type='submit' name='page' value='<?php echo $page + 1; ?>'>Next Page</button>
         </form>
         <form id='search' action='search.php' method='post' display='inline'>
+            <input type='hidden' name='display' value='<?php echo $displayFilter; ?>'>
+            <input type='hidden' name='order' value='<?php echo $displayOrder; ?>'>
             <input type='text' name='searchQuery' value='<?php $searchQuery ?>'><input type='submit' value='Search'>
         </form>
 
     </div>
 
 <table id="repairRegister">
-    <tr class="titleRow"><td>Repair ID</td><td>Customer Name</td><td>Item</td><td>Date</td><td>Updates</td><td>Status</td></tr>
+    <tr class="titleRow"><td width='25px'>#</td><td width='25px'></td><td>Repair ID</td><td>Customer Name</td><td>Item</td><td>Date</td><td>Updates</td><td>Status</td></tr>
     <?php
-        $query = "SELECT * from repairs WHERE (repair_id LIKE '%$searchQuery%' or customer_name LIKE '%$searchQuery%' or product_name LIKE '%$searchQuery%' or customer_phone LIKE '%$searchQuery%') $statusFilter $displayOrder";
+        $pageIndex = $page * $displayNum;
+        $queryOffset = $pageIndex - $displayNum;
+        $rowCount = $queryOffset + 1;
+        $query = "SELECT * from repairs WHERE (repair_id LIKE '%$searchQuery%' or customer_name LIKE '%$searchQuery%' or product_name LIKE '%$searchQuery%' or customer_phone LIKE '%$searchQuery%') $statusFilter $displayOrder limit $queryOffset, $displayNum";
         $result = $conn->query($query);
         while($row = $result->fetch_assoc()) {
                     if ($row["status"] != 'complete'){
@@ -97,8 +138,9 @@ $searchQuery = test_input($_POST['searchQuery']);
             }else{
                 $active = "Complete";
             }
-            echo "<tr><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_date"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>";  
-        }
+            echo "<tr><td>".$rowCount."</td><td><a href=print.php?docket=".$row["repair_ID"]."><img src='images/pdf.jpg' width='25' alt='Print to PDF'></a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".date('d M Y', strtotime($row["repair_date"]))."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>";  
+            $rowCount++;
+            }
     ?>
 </table>
 </div>

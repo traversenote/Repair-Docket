@@ -99,6 +99,7 @@ table.newRepairTable {
 #displayFilter {
     display: inline;
     float: left;
+    width: 75%;
 }
 #displayControl {
     height: 40px;
@@ -116,4 +117,8 @@ table.newRepairTable {
     float: left;
     width: 33.3%;
 }
-%
+#pageDiv {
+    width: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
