@@ -23,7 +23,7 @@ $displayOrder = test_input($_POST['order']);
     <div id='displayControl'>
     <!--- Grabs the variables to configure display priority --->
         <?php
-        $page = test_input($_GET['page']);
+        $page = test_input($_GET['paNext Pagege']);
         if($page <= 0){ $page=1; }
         $displayNum = test_input($_GET['displayNum']);
         if(isset($_GET['display'])){
@@ -108,13 +108,13 @@ $displayOrder = test_input($_POST['order']);
             </select>
             <input type='hidden' name='searchQuery' value='<?php echo $searchQuery; ?>'>
             <span id='pageDiv'>Page <?php echo $page ?></span>
-            <button type='submit' name='page' value='<?php echo $page - 1; ?>'>Previous Page</button>
+            <button type='submit' name='page' value='<?php echo $page - 1; ?>'><-</button>
             <select name='displayNum'>
             <option value='50' <?php echo $dNum50; ?> >50</option>
             <option value='100' <?php echo $dNum100; ?> >100</option>
             <option value='200' <?php echo $dNum200; ?> >200</option>
         </select>
-        <button type='submit' name='page' value='<?php echo $page + 1; ?>'>Next Page</button>
+        <button type='submit' name='page' value='<?php echo $page + 1; ?>'>-></button>
         </form>
         <form id='search' action='search.php' method='post' display='inline'>
             <input type='hidden' name='display' value='<?php echo $displayFilter; ?>'>

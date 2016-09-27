@@ -25,7 +25,7 @@ function Footer()
     // Arial italic 8
     $this->SetFont('Arial','I',8);
     // Page number
-    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+    #$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 }
 }
     
@@ -121,7 +121,7 @@ $pdf->SetFont('Arial', '', 8);
 $pdf->multiCell(150,7,"$salesperson", 0);
 if($status != 'active'){
     $pdf->SetFont('Arial', '', 10);
-    $pdf->multiCell(150,7,"This is a reprinted docket. This repair was marked as complete on $completeDate", 0);
+    #$pdf->multiCell(150,7,"This is a reprinted docket. This repair was marked as complete on $completeDate", 0);
 }
 $pdf->Output();
 ?>

@@ -103,13 +103,13 @@
             <option value='invert' <?php echo $invertOrder; ?> >Newest First</option>
         </select>
         <span id='pageDiv'>Page <?php echo $page ?></span>
-        <button type='submit' name='page' value='<?php echo $page - 1; ?>'>Previous Page</button>
+        <button type='submit' name='page' value='<?php echo $page - 1; ?>'><-</button>
         <select name='displayNum'>
             <option value='50' <?php echo $dNum50; ?> >50</option>
             <option value='100' <?php echo $dNum100; ?> >100</option>
             <option value='200' <?php echo $dNum200; ?> >200</option>
         </select>
-        <button type='submit' name='page' value='<?php echo $page + 1; ?>'>Next Page</button>
+        <button type='submit' name='page' value='<?php echo $page + 1; ?>'>-></button>
         </form>
         <div id='search' float='right'>
             <form action='search.php' method='post' display='inline'>
