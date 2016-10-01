@@ -114,11 +114,11 @@ echo "Created successfully.";
 }
 require 'docket.php';
 ?>
-</div>
+
 */
 
 ?>
-
+</div>
 </body>
 </html> 
 <!---

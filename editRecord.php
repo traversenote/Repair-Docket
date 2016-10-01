@@ -56,7 +56,7 @@ if ($status != 'complete'){
 <tr class="titleRow"><td>Customer Name</td><td>Date</td></tr>
 <tr><td><?php echo "<input type='text' name='name' value='".$customer_name."' size='50'><br><input type='text' name='phone' value='".$customer_phone."' size='50'></br><input type='text' name='email' value='".$customer_email."'></td><td>".$date; ?></td></tr>
 <tr><td></td><td></td></tr>
-</td></tr></table>
+</table>
 
 <tr class="titleRow"><td>Product Details:</td></tr>
 <tr><td><?php echo "<input type='text' size='100' name='product' value='".$product_name."'>"; ?></td></tr>
@@ -79,17 +79,19 @@ if ($status != 'complete'){
 <tr class='titleRow'><td>You have been dealing with:</td></tr>
 <tr><td>
 <tr><td><?php echo "<input type='text' size='100' name='salesperson' value='".$salesperson."'>"; ?></td></tr>
-</td></tr>
+
 <tr><td><label><input type='checkbox' name='status' value='complete'<?php echo " ".$checked; ?> >Complete</label></td></tr>
-</td></tr>
+
 
 
 </table>
+<input type="submit" value="Submit">
+</form>
 </div>
 
 <div id="footNav">
-<input type="submit" value="Submit">
-</form>
+
+
 </div>
 
 </body>

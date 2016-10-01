@@ -53,8 +53,8 @@ echo "no get record found";
 <div id="mainContent">
 <div id='displayControl'>
 <!--- Displays the Choosers for display priority --->
-        <div id='search' float='right'>
-            <form action='search.php' method='post' display='inline'>
+        <div id='search'>
+            <form action='search.php' method='post'>
                 <input type='text' name='searchQuery'><input type='submit' value='Search'>
             </form>
         </div>

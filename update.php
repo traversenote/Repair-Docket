@@ -34,15 +34,19 @@ $updates = test_input($_POST["updates"]);
 $query = "update repairs set customer_name='$name', customer_phone='$phone', customer_email='$email', product_name='$product', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', updates='$updates', salesperson='$salesperson', status='$repairState', tested='$tested' where repair_ID='$repair_ID'";
 
 if ($conn->query($query) == TRUE) {
-echo "Created successfully.";
-
+	#echo "Created successfully.";
+	require 'docket.php';
 }
-require 'docket.php';
+
 ?>
 
-
-
 </div>
-
+<div id='footNav'>
+<div id='navInner'>
+<div class='navCell'><a href="editRecord.php?docket=<?php echo $repair_ID ?>">Edit this Record</a></div>
+<div class='navCell'><a href='print.php?docket=<?php echo $repair_ID ?>'>Print to PDF</a></div>
+<div class='navCell'><a href="record.php?docket=<?php echo $repair_ID ?>&state=complete">Mark this repair as Complete</a></div>
+</div>
+</div>
 </body>
 </html>

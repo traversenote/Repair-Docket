@@ -11,8 +11,8 @@
 <div id='mainContent'>
 <div id='displayControl'>
 <!--- Displays the Choosers for display priority --->
-        <div id='search' float='right'>
-            <form action='search.php' method='post' display='inline'>
+        <div id='search'>
+            <form action='search.php' method='post'>
                 <input type='text' name='searchQuery'><input type='submit' value='Search'>
             </form>
         </div>
@@ -34,17 +34,24 @@ $date = date("Y-m-d");
 
 $query = "insert into repairs (customer_name, customer_phone, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson, tested, status) values ('$name', '$phone', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson', '$tested', 'active')";
 
+$success='0';
 
 if ($conn->query($query) == TRUE) {
-echo "Created successfully.</br>";
-
-require 'docket.php';
-
+	$success='1';
 } else {
-echo "Problem here boss:". $sql. "<br>". $conn->error;
+	echo "Problem here boss:". $sql. "<br>". $conn->error;
 }
 
-
+$query = "SELECT * FROM repairs ORDER BY repair_ID DESC LIMIT 1";
+$result = $conn->query($query);
+while ($row = $result->fetch_assoc()) {
+	$repair_ID = $row["repair_ID"];
+}
+if($success == '1'){
+	require 'docket.php';
+}else{	
+	echo "There was an issue";
+}
 ?>
 
 </div>

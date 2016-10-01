@@ -1,9 +1,5 @@
 <?php
 // Credentials for connecting to the Database
-//$servername = "localhost";
-//$username = "repairsApp";
-//$password = "wellingtonRepairs";
-//$dbname = "repairs";
 
 $servername = "localhost";
 $username = "testuser";

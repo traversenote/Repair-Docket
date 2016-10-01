@@ -7,14 +7,14 @@ if($status != 'complete'){
 ?>
 <table id="docket">
 <tr><td>
-<table id="repairHeader" width="100%">
+<table id="repairHeader" style="width:100%;">
 <tr class='titleRow'><td>Repair ID</td><td>The Listening Post Wellington<br>150 Willis Street<br></td></tr>
 <tr><td><?php echo $repair_ID; ?></td><td> 0508 TO HIFI  |  0508 86 44 34</td></tr>
 <tr><td></td><td></td></tr>
 <tr class='titleRow'><td>Customer Name</td><td>Date</td></tr>
 <tr><td><?php echo $name."<br>".$phone."</br>".$email."</td><td>".$date; ?></td></tr>
 <tr><td></td><td></td></tr>
-</td></tr></table>
+</table>
 
 <tr class='titleRow'><td>Product Details:</td></tr>
 <tr><td><?php echo $product; ?></td></tr>
@@ -38,7 +38,7 @@ if($status != 'complete'){
 <tr><td></td></tr>
 <tr><td><?php echo $salesperson; ?></td></tr>
 <tr><td></td></tr>
-<tr><td><?php echo "Status: ".$displayRepairState; ?></br></td></tr>
+<tr><td><?php echo "Status: ".$displayRepairState; ?></td></tr>
 <?php
 
 if(isset($completeDate)){
@@ -48,6 +48,4 @@ echo "<tr><td></td></tr>\n<tr class='titleRow'><td>Date Completed:</td></tr><tr>
 }
 ?>
 
-
-</td></tr>
 </table>
