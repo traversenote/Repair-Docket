@@ -24,6 +24,7 @@ $salesperson = test_input($_POST["salesperson"]);
 $tested = test_input($_POST["tested"]);
 $repair_ID = test_input($_POST["repair_ID"]);
 $status = test_input($_POST["status"]);
+$lastUpdate = date();
 
 if($status != 'complete'){
     $repairState = 'active';
@@ -31,7 +32,7 @@ if($status != 'complete'){
     $repairState = 'complete';
 }
 $updates = test_input($_POST["updates"]);
-$query = "update repairs set customer_name='$name', customer_phone='$phone', customer_email='$email', product_name='$product', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', updates='$updates', salesperson='$salesperson', status='$repairState', tested='$tested' where repair_ID='$repair_ID'";
+$query = "update repairs set customer_name='$name', customer_phone='$phone', customer_email='$email', product_name='$product', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', updates='$updates', salesperson='$salesperson', status='$repairState', tested='$tested' , lastUpdate=CURDATE() where repair_ID='$repair_ID'";
 
 if ($conn->query($query) == TRUE) {
 	#echo "Created successfully.";

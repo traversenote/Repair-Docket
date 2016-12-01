@@ -16,6 +16,8 @@
 	$displayMethod = 'display';
 	include 'register.php';
 	?>
-
+<div id='footNav'>
+Contact jason@listeningpost.co.nz for any issues.
+</div>
 </body>
 </html>

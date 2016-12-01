@@ -28,7 +28,7 @@ if($status != 'complete'){
 <tr class='titleRow'><td>Notes:</td></tr>
 <tr><td><?php echo $notes; ?></td></tr>
 <tr><td></td></tr>
-<tr class='titleRow'><td>Updates:</td></tr>
+<tr class='titleRow'><td>Updated at  <?php echo $lastUpdate;?></td></tr>
 <tr><td><?php echo $updates; ?></td></tr>
 <tr><td></td></tr>
 <tr class='titleRow'><td>Tested in Store?</td></tr>

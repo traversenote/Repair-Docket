@@ -36,13 +36,13 @@ table#repairRegister th, td {
     display: block;
     text-decoration: none;
 }
-/* Define the default color for all the table rows */
 
-/* Define the hover highlight color for the table row */
 #repairRegister tr:hover {
     background-color: #ffff99;
 }
-
+.attention{
+	background-color:#ff7878;
+}
 .titleRow{
     height: 3px;
     background-color: #99ccff;
@@ -121,3 +121,5 @@ table.newRepairTable {
     margin-right: 5%;
     margin-left: 5%;
 }
+
+

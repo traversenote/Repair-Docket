@@ -22,7 +22,6 @@ if($_GET["docket"]) {
         }
     }
 
-
     $query = "SELECT * FROM repairs WHERE repair_ID=$record";
     $result = $conn->query($query);
     
@@ -40,6 +39,7 @@ if($_GET["docket"]) {
         $tested = $row["tested"];
         $updates = $row["updates"];
         $status = $row["status"];
+        $lastUpdate = date('d M Y', strtotime($row["lastUpdate"]));
         $completeDate = $row["completeDate"];
     }
     

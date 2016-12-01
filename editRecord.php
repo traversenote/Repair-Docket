@@ -62,7 +62,7 @@ if ($status != 'complete'){
 <tr><td><?php echo "<input type='text' size='100' name='product' value='".$product_name."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Product Fault:</td></tr>
-<tr><td><?php echo "<textarea rows='15' cols='100' name='fault' name='fault'>".addslashes($product_fault)."</textarea>"; ?></td></tr>
+<tr><td><?php echo "<input type='text' size='100' name='fault' name='fault' value='".$product_fault."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Included Accessories:</td></tr>
 <tr><td><?php echo "<input type='text' size='100' name='accessories' value='".$product_accessories."'>"; ?></td></tr>
@@ -71,7 +71,7 @@ if ($status != 'complete'){
 <tr><td><?php echo "<input type='text' size='100' name='notes' value='".$notes."'>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Updates:</td></tr>
-<tr><td><?php echo "<input type='text' size='100' name='updates' value='".$updates."'>"; ?></td></tr>
+<tr><td><?php echo "<textarea rows='15' cols='100' name='updates'>".$updates."</textarea>"; ?></td></tr>
 <tr><td></td></tr>
 <tr class="titleRow"><td>Tested in Store?</td></tr>
 <tr><td><?php echo "<input type='text' size='100' name='tested' value='".$tested."'>"; ?></td></tr>
