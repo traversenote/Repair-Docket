@@ -31,8 +31,9 @@ $notes = test_input($_POST["notes"]);
 $tested = test_input($_POST["tested"]);
 $salesperson = test_input($_POST["salesperson"]);
 $date = date("Y-m-d");
+$updates = $date;
 
-$query = "insert into repairs (customer_name, customer_phone, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson, tested, status) values ('$name', '$phone', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson', '$tested', 'active')";
+$query = "insert into repairs (customer_name, customer_phone, customer_email, repair_date, product_name, product_fault, product_accessories, product_misc, salesperson, tested, status, lastUpdate) values ('$name', '$phone', '$email', '$date', '$product', '$fault', '$accessories', '$notes', '$salesperson', '$tested', 'active', '$date')";
 
 $success='0';
 

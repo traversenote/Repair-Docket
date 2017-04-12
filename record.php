@@ -16,7 +16,7 @@ if($_GET["docket"]) {
         $status = test_input($_GET["state"]);
         if($status = "complete"){
             $date = date("Y-m-d");
-            $query = "UPDATE repairs SET status='$status', completeDate='$date' where repair_ID=$record";
+            $query = "UPDATE repairs SET lastUpdate='$date', status='$status', completeDate='$date' where repair_ID=$record";
             $result = $conn->query($query);
   
         }
@@ -47,9 +47,12 @@ if($_GET["docket"]) {
 echo "no get record found";
 }
 
+$pRecord = (int)$repair_ID -1;
+$nRecord = (int)$repair_ID +1;
+
 ?>
 <body>
-<div id='topNav'><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a></div><div id="titleBar">Repair # <?php echo $repair_ID ?></div>
+<div id='topNav'><!--<a href='record.php?docket=<?php echo $pRecord; ?>'>Previous</a> | ---><a href='index.php'>Register Home</a> | <a href='newRepair.php'>New Repair</a><!-- | <a href='record.php?docket=<?php echo $nRecord; ?>'>Next</a>--></div><div id="titleBar">Repair # <?php echo $repair_ID ?></div>
 <div id="mainContent">
 <div id='displayControl'>
 <!--- Displays the Choosers for display priority --->

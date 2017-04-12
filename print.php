@@ -55,12 +55,12 @@ if($_GET["docket"]) {
         $phone = $row["customer_phone"];
         $email = $row["customer_email"];
         $product = $row["product_name"];
-        $fault = $row["product_fault"];
+        $fault = htmlspecialchars_decode($row["product_fault"]);
         $accessories = $row["product_accessories"];
         $date = date('d M Y', strtotime($row["repair_date"]));
-        $notes = $row["product_misc"];
+        $notes = htmlspecialchars_decode($row["product_misc"]);
         $salesperson = $row["salesperson"];
-        $updates = $row["updates"];
+        $updates = htmlspecialchars_decode($row["updates"]);
         $lastUpdate = date('d M Y', strtotime($row["lastUpdate"]));
         $tested = $row["tested"];
         $status = $row["status"];
