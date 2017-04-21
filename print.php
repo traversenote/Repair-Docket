@@ -65,12 +65,13 @@ if($_GET["docket"]) {
         $tested = $row["tested"];
         $status = $row["status"];
         $completeDate = date('d M Y', strtotime($row["completeDate"]));
-
+		$title = "Repair ".$repair_ID." | The Listening Post";
     }
     
 }else{
 echo "no get record found";
 }
+$pdf->SetTitle($title);
 $pdf->SetLeftMargin(30);
 $pdf->AddPage();
 
@@ -87,8 +88,12 @@ $pdf->Ln();
 $pdf->Cell(75,7,'Customer: ', 1);
 $pdf->Cell(75,7,'Date:', 1);
 $pdf->Ln();
-$pdf->Cell(75,7,"$name", 1);
-$pdf->Cell(75,7,"$date", 1);
+$pdf->Cell(75,7,"$name", 0);
+$pdf->Cell(75,7,"$date", 0);
+$pdf->Ln();
+$pdf->Cell(75,7,"$phone", 0);
+$pdf->Ln();
+$pdf->Cell(75,7,"$email", 0);
 $pdf->Ln();
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);

@@ -2,14 +2,14 @@
 
 function test_input($data) {
   $data = trim($data);
-  $data = stripslashes($data);
   $data = addslashes($data);
   $data = htmlspecialchars($data);
   return $data;
   }
   
 function decode_input($data) {
-	$data = htmlspecialchars_decode($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data, ENT_QUOTES);
 	return $data;
 }
  

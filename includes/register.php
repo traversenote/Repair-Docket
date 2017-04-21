@@ -1,6 +1,7 @@
-<div id='mainContent'>
+<div class="panel" id='titleBar'>The Listening Post Repair Register</div>
+<div class="container" id='mainContent'>
 <!---This section handles display control information. Display order, weather completed orders are displayed, etc.--->
-    <div id='displayControl'>
+
         <?php
         $page = test_input($_GET['page']);
         if($page <= 0){ $page=1; }
@@ -83,35 +84,55 @@
         }
         ?>
 <!--- Displays the Choosers for display priority --->
-        <form id='displayFilter' action='<?php echo basename($_SERVER['PHP_SELF']); ?>' method='get' onchange='change()'>
-        <input type="hidden" name=page value='<?php echo $page; ?>'>
-        <input type='hidden' name='searchQuery' value='<?php echo $searchQuery; ?>'>
-        <select name='display'>
-            <option value='test_input($_GET['searchQuery']);active' <?php echo $activeDisplay; ?> >Active Only</option>
-            <option value='all' <?php echo $allDisplay; ?> >All Repairs</option>
-            <option value='complete' <?php echo $completeDisplay; ?> >Complete Repairs</option>
-        </select>
-        <select name='order'>
-            <option value='normal' <?php echo $normalOrder; ?> >OldestFirst</option>
-            <option value='invert' <?php echo $invertOrder; ?> >Newest First</option>
-        </select>
-        <span id='pageDiv'>Page <?php echo $page ?></span>
-        <button type='submit' name='page' value='<?php echo $page - 1; ?>'>&larr;</button>
-        <select name='displayNum'>
-            <option value='50' <?php echo $dNum50; ?> >50</option>
-            <option value='100' <?php echo $dNum100; ?> >100</option>
-            <option value='200' <?php echo $dNum200; ?> >200</option>
-        </select>
-        <button type='submit' name='page' value='<?php echo $page + 1; ?>'>&rarr;</button>
-        </form>
-        <div id='search'>
-            <form action='search.php' method='post'>
-                <input type='text' name='searchQuery'><input type='submit' value='Search'>
-            </form>
-        </div>
+    <div class="row" id='displayControl'>
+        <form class="form-group" id='displayFilter' action='<?php echo basename($_SERVER['PHP_SELF']); ?>' method='get' onchange='change()'>
+	        <input type="hidden" name=page value='<?php echo $page; ?>'>
+	        <input type='hidden' name='searchQuery' value='<?php echo $searchQuery; ?>'>
+			<div class="col-md-3">
+		        <select class="form-control" name='display'>
+		            <option value='test_input($_GET['searchQuery']);active' <?php echo $activeDisplay; ?> >Active Only</option>
+		            <option value='all' <?php echo $allDisplay; ?> >All Repairs</option>
+		            <option value='complete' <?php echo $completeDisplay; ?> >Complete Repairs</option>
+		        </select>
+		    </div>
+		    <div class="col-md-3">
+		        <select class="form-control" name='order'>
+		            <option value='normal' <?php echo $normalOrder; ?> >OldestFirst</option>
+		            <option value='invert' <?php echo $invertOrder; ?> >Newest First</option>
+		        </select>
+		    </div>
+		    <div class="col-md-2">
+		        Page <?php echo $page ?>
+		    </div>
+		    <div class="col-md-1">
+		        <button class="btn btn-default" type='submit' name='page' value='<?php echo $page - 1; ?>'><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></button>
+		    </div>
+		    <div class="col-md-2">
+		        <select class="form-control" name='displayNum'>
+		            <option value='50' <?php echo $dNum50; ?> >50</option>
+		            <option value='100' <?php echo $dNum100; ?> >100</option>
+		            <option value='200' <?php echo $dNum200; ?> >200</option>
+		        </select>
+			</div>
+		    <div class="col-md-1">
+	        	<button class="btn btn-default" type='submit' name='page' value='<?php echo $page + 1; ?>'><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+			</div>
+	    </form>
+        <div class="col-md-4" id='search'>
+            <form class="form-group" action='search.php' method='post'>
+            	<div class="col-md-6">
+                	<input class="form-control" type='text' name='searchQuery' placeholder"">
+				</div>
+				<div class="col-md-4">
+					<input class="btn btn-default" type='submit' value='Search'>
+				</div>
+			</form>          
+    	</div>
     </div>
-    <table id='repairRegister'>
-        <tr class="titleRow"><td width='25px'>#</td><td width='25px'></td><td>Repair ID</td><td>Customer Name</td><td>Item</td><td>Date</td><td>Updates</td><td>Status</td></tr>
+    <div class="panel" id='repairRegister'>
+    	<div class="row titleRow">
+        	<div class="col-md-1">#</div><div class="col-md-1">RepairID</div><div class="col-md-2">Customer Name</div><div class="col-md-2">Item</div><div class="col-md-2">Date</div><div class="col-md-1">Updates</div><div class="col-md-2">Status</div>
+        </div>
         <?php
         $date = date('Y-m-d', strtotime($attentionTime.' weeks'));
         $pageIndex = $page * $displayNum;
@@ -134,14 +155,14 @@
                 $active = "Complete";
             }
             if (isset($row['lastUpdate']) && $active == 'Active' && $row['lastUpdate'] <= $date ){
-            	$attFlag = "class='attention'";            
+            	$attFlag = "attention";            
             }else{
             	$attFlag = "";
             }
-            echo "<tr ".$attFlag."><td>".$rowCount."</td><td><a href=print.php?docket=".$row["repair_ID"]."><img src='images/pdf.jpg' width='25' alt='Print to PDF'></a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["repair_ID"]."</td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["customer_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["product_name"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".date('d M Y', strtotime($row["repair_date"]))."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$row["updates"]."</a></td><td><a href=record.php?docket=".$row["repair_ID"].">".$active."</a></td></tr>\n";  
+            echo "<div class='row regRows ".$attFlag."'>\n<div class='col-md-1 repairCell'><div class='col-md-1'>".$rowCount."</div><div class='col-md-1'><a href=print.php?docket=".$row["repair_ID"]." target='_blank'><img src='images/pdf.png' width='25' alt='Print to PDF'></a></div></div><a href=/repairRegister/index.php?method=docket&docket=".$row["repair_ID"]."><div class='col-md-1 repairCell'>".$row["repair_ID"]."</div><div class='col-md-2 repairCell'>".$row["customer_name"]."</div><div class='col-md-2 repairCell'>".$row["product_name"]."</div><div class='col-md-2 repairCell'>".date('d M Y', strtotime($row["repair_date"]))."</div><div class='col-md-1 repairCell'>".$row["updates"]."</div><div class='col-md-2 repairCell'>".$active."</div>\n</a></div>\n";  
             
             $rowCount++;
         }
         ?>
-    </table>
+    </div>
     </div>
