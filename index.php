@@ -48,14 +48,17 @@
 	
 		<?php
 		if ($_GET['method']== 'docket'){
-			echo "<script> document.title='Repair Number: ".htmlspecialchars($_GET["docket"])."';</script>";
+			echo "<script> document.title='Repair Number: ".test_input($_GET["docket"])."';</script>";
 			include 'includes/record.php';
 		}elseif($_GET['method']== 'edit'){
-			echo "<script> document.title='Editing: Repair Number ".htmlspecialchars($_GET["docket"])."';</script>";
+			echo "<script> document.title='Editing: Repair Number ".test_input($_GET["docket"])."';</script>";
 			include 'includes/editRecord.php';
 		}elseif($_GET['method']== 'new'){
 			echo "<script> document.title='Create a new Ticket';</script>";
 			include 'includes/newRepair.php';
+		}elseif($_GET['method']== 'update'){
+			echo "<script> document.title='Repair Number: ".test_input($_GET["docket"])."';</script>";
+			include 'includes/update.php';
 		}else{
 			$displayMethod = 'display';
 			include 'includes/register.php';

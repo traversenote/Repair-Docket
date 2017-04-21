@@ -34,7 +34,7 @@ if ($status != 'complete'){
 }
 ?>
 
-<form action="update.php?docket=<?php echo $repair_ID ?>" method="post">
+<form action="index.php?method=update&docket=<?php echo $repair_ID; ?>" method="post">
 <div class="panel">
 	<div class="row titleRow">
 		<div class="col-md-5">Repair ID</div>

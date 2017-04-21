@@ -1,6 +1,6 @@
 <div id='titleBar'>New Repair Docket</div>
 <div class="container" id='mainContent'>
-		<form action='upload.php' method='post'>
+		<form action='includes/upload.php' method='post'>
 			<div class="panel">
 		        <legend>Customer Information</legend>
 				<div class="form-group">
