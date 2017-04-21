@@ -10,6 +10,7 @@ function test_input($data) {
 function decode_input($data) {
 	$data = stripslashes($data);
 	$data = htmlspecialchars($data, ENT_QUOTES);
+	$data = html_entity_decode($data);
 	return $data;
 }
  
