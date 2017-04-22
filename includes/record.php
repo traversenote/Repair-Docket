@@ -49,66 +49,68 @@ if($status != 'complete'){
 }
 ?>
 <div class="panel">
+
+<div class='row'>
+	<div class='col-md-8 col-md-offset-2'>
+
 	<div class="row titleRow">
-		<div class="col-md-5">Repair ID</div>
-		<div class="col-md-5">The Listening Post Wellington</div>
+		<div class="col-md-6">Repair ID</div>
+		<div class="col-md-6">The Listening Post Wellington</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-5"><?php echo $repair_ID; ?></div>
-		<div class="col-md-5">150 Willis Street</br>0508 TO HIFI  |  0508 86 44 34</div>
+		<div class="col-md-6"><?php echo $repair_ID; ?></div>
+		<div class="col-md-6">150 Willis Street</br>0508 TO HIFI  |  0508 86 44 34</div>
 	</div>
 	<div class='row titleRow'>
-		<div class="col-md-5">Customer Name</div>
-		<div class="col-md-5">Date</div>
+		<div class="col-md-6">Customer Name</div>
+		<div class="col-md-6">Date</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-5"><?php echo $name."<br>".$phone."</br>".$email; ?></div>
-		<div class="col-md-5"><?php echo $date; ?></div>
+		<div class="col-md-6"><?php echo $name."<br>".$phone."</br>".$email; ?></div>
+		<div class="col-md-6"><?php echo $date; ?></div>
 	</div>	
 	<div class='row titleRow'>
-		<div class="col-md-5">Product Details:</div>
+		<div class="col-md-6">Product Details:</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $product; ?></div>
+		<div class="col-md-12"><?php echo $product; ?></div>
 	</div>
 	<div class='row titleRow'>
-		<div class="col-md-5">Product Fault:</div>
+		<div class="col-md-6">Product Fault:</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $fault; ?></div>
+		<div class="col-md-12"><?php echo $fault; ?></div>
+	</div>
+		<div class='row titleRow'>
+		<div class="col-md-6">Tested in Store?</div>
+		<div class="col-md-6"><?php echo $tested; ?></div>
 	</div>
 	<div class='row titleRow'>
-		<div class="col-md-5">Included Accessories:</div>
+		<div class="col-md-6">Included Accessories:</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $accessories; ?></div>
+		<div class="col-md-12"><?php echo $accessories; ?></div>
 	</div>
 	<div class='row titleRow'>
-		<div class="col-md-5">Notes:</div>
+		<div class="col-md-6">Notes:</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $notes; ?></div>
+		<div class="col-md-12"><?php echo $notes; ?></div>
 	</div>
 	<div class='row titleRow'>
-		<div class="col-md-5">Updated at  <?php echo $lastUpdate;?></div>
+		<div class="col-md-6">Updated at  <?php echo $lastUpdate;?></div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $updates; ?></div>
+		<div class="col-md-12"><?php echo $updates; ?></div>
 	</div>
 	<div class='row titleRow'>
-		<div class="col-md-5">Tested in Store?</div>
+		<div class="col-md-6">You have been dealing with:</div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $tested; ?></div>
-	</div>
-	<div class='row titleRow'>
-		<div class="col-md-5">You have been dealing with:</div>
+		<div class="col-md-12"><?php echo $salesperson; ?></div>
 	</div>
 	<div class="row inputRow">
-		<div class="col-md-10"><?php echo $salesperson; ?></div>
-	</div>
-	<div class="row inputRow">
-		<div class="col-md-10"><?php echo "Status: ".$displayRepairState; ?></div>
+		<div class="col-md-12"><?php echo "Status: ".$displayRepairState; ?></div>
 	</div>
 	<?php
 	
@@ -118,6 +120,7 @@ if($status != 'complete'){
 	
 	}
 	?>
+	</div></div>
 </div>
 
 
