@@ -88,14 +88,14 @@
         <form class="form-group" id='displayFilter' action='<?php echo basename($_SERVER['PHP_SELF']); ?>' method='get' onchange='change()'>
 	        <input type="hidden" name=page value='<?php echo $page; ?>'>
 	        <input type='hidden' name='searchQuery' value='<?php echo $searchQuery; ?>'>
-			<div class="col-md-3">
+			<div class="col-md-2">
 		        <select class="form-control" name='display'>
 		            <option value='test_input($_GET['searchQuery']);active' <?php echo $activeDisplay; ?> >Active Only</option>
 		            <option value='all' <?php echo $allDisplay; ?> >All Repairs</option>
 		            <option value='complete' <?php echo $completeDisplay; ?> >Complete Repairs</option>
 		        </select>
 		    </div>
-		    <div class="col-md-3">
+		    <div class="col-md-2">
 		        <select class="form-control" name='order'>
 		            <option value='normal' <?php echo $normalOrder; ?> >OldestFirst</option>
 		            <option value='invert' <?php echo $invertOrder; ?> >Newest First</option>
@@ -114,20 +114,10 @@
 		            <option value='200' <?php echo $dNum200; ?> >200</option>
 		        </select>
 			</div>
-		    <div class="col-md-1">
+		    <div class="col-md-2">
 	        	<button class="btn btn-default" type='submit' name='page' value='<?php echo $page + 1; ?>'><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 			</div>
 	    </form>
-        <div class="col-md-4" id='search'>
-            <form class="form-group" action='search.php' method='post'>
-            	<div class="col-md-6">
-                	<input class="form-control" type='text' name='searchQuery' placeholder"">
-				</div>
-				<div class="col-md-4">
-					<input class="btn btn-default" type='submit' value='Search'>
-				</div>
-			</form>          
-    	</div>
     </div>
     <div class="panel" id='repairRegister'>
     	<div class="row titleRow">

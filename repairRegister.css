@@ -43,7 +43,7 @@ body {
 }
 #displayFilter {
     display: inline;
-    float: left;
+
 
 
 }
@@ -124,8 +124,6 @@ textarea.mobile {
 .attention{
 	background-color:#ff7878; !important
 }
-
-
 
 
 
