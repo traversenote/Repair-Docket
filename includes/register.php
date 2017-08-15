@@ -1,4 +1,4 @@
-<div class="panel" id='titleBar'>The Listening Post Repair Register</div>
+<div class="panel" id='titleBar'>The Listening Post <?php echo $location; ?> Repair Register</div>
 <div class="container" id='mainContent'>
 <!---This section handles display control information. Display order, weather completed orders are displayed, etc.--->
 

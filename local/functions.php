@@ -1,5 +1,13 @@
 <?php
 
+$version = "1.1";
+
+//Site specific variables
+
+$locName = "Wellington Test";
+$locAdd = "100 Test Street";
+$locPho = "04 111 1111";
+
 function test_input($data) {
   $data = trim($data);
   $data = addslashes($data);
@@ -18,6 +26,6 @@ function decode_input($data) {
 $attentionTime = '-2';
 
 // Script to make entire rows links
-echo "<script>\nfunction change(){\ndocument.getElementById('displayFilter').submit();\n}\n</script>\n";
+//echo "<script>\nfunction change(){\ndocument.getElementById('displayFilter').submit();\n}\n</script>\n";
 
 ?>

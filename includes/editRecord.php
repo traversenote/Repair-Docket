@@ -13,6 +13,7 @@ if($_GET["docket"]){
         $customer_phone = decode_input($row["customer_phone"]);
         $customer_email = decode_input($row["customer_email"]);
         $product_name = decode_input($row["product_name"]);
+        $dos = decode_input($row["dos"]);
         $product_fault = decode_input($row["product_fault"]);
         $product_accessories = decode_input($row["product_accessories"]);
         $updates = decode_input($row["updates"]);
@@ -57,6 +58,12 @@ if ($status != 'complete'){
 	</div>
 	<div class="row inputRow">
 		<div class="col-md-10"><?php echo "<input type='text' class='form-control' name='product' value='".$product_name."'>"; ?></div>
+	</div>
+		<div class="row titleRow">
+	<div class="col-md-10">Date of Sale:</div>
+	</div>
+	<div class="row inputRow">
+		<div class="col-md-10"><?php echo "<input type='text' name='dos' id='datepicker' value='".$dos."'>"; ?></div>
 	</div>
 	<div class="row titleRow">
 		<div class="col-md-10">Product Fault:</div>

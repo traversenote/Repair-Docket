@@ -6,11 +6,15 @@ if($_GET["docket"]) {
     
     if($_GET["state"]) {
         $status = test_input($_GET["state"]);
-        if($status = "complete"){
+        if($status == "complete"){
             $date = date("Y-m-d");
             $query = "UPDATE repairs SET lastUpdate='$date', status='$status', completeDate='$date' where repair_ID=$record";
             $result = $conn->query($query);
-  
+        }
+  		elseif($status == "incomplete"){
+  			$date = date("Y-m-d");
+  			$query = "UPDATE repairs SET lastUpdate='$date', status='$status', completeDate='$date' where repair_ID=$record";
+  			$result = $conn->query($query); 		
         }
     }
 
@@ -23,6 +27,7 @@ if($_GET["docket"]) {
     	$phone = decode_input($row["customer_phone"]);
     	$email = decode_input($row["customer_email"]);
     	$product = decode_input($row["product_name"]);
+    	$dos = decode_input($row["dos"]);
     	$fault = decode_input($row["product_fault"]);
     	$accessories = decode_input($row["product_accessories"]);
         $date = date('d M Y', strtotime($row["repair_date"]));
@@ -76,6 +81,12 @@ if($status != 'complete'){
 		<div class="col-md-12"><?php echo $product; ?></div>
 	</div>
 	<div class='row titleRow'>
+	<div class="col-md-6">Date of Sale:</div>
+	</div>
+	<div class="row inputRow">
+		<div class="col-md-12"><?php echo $dos; ?></div>
+	</div>
+	<div class='row titleRow'>
 		<div class="col-md-6">Product Fault:</div>
 	</div>
 	<div class="row inputRow">
@@ -114,7 +125,7 @@ if($status != 'complete'){
 	</div>
 	<?php
 	
-	if(isset($completeDate)){
+	if($status == "complete"){
 	
 	echo "	<div class='row titleRow'><div class='col-md-10'>Date Completed: ".$completeDate."</div></div>";
 	
@@ -127,6 +138,14 @@ if($status != 'complete'){
 <div id="bottomNav" class="panel" >
 	<a href="index.php?method=edit&docket=<?php echo $repair_ID ?>" class="fakeButton">Edit this Record</a>
 	<a href='print.php?docket=<?php echo $repair_ID ?>' class="fakeButton">Print to PDF</a>
-	<a href="index.php?method=docket&docket=<?php echo $repair_ID ?>&state=complete" class="fakeButton">Mark this repair as Complete</a>
+	<?php
+	
+	if($status != "complete"){
+		echo "<a href=\"index.php?method=docket&docket=".$repair_ID."&state=complete\" class=\"fakeButton\">Mark this repair as Complete</a>";       
+	}
+	if($status == "complete"){
+		echo "<a href=\"index.php?method=docket&docket=".$repair_ID."&state=incomplete\" class=\"fakeButton\">Mark this repair as Incomplete</a>";
+	}
+	?>
 </div>
 </div>

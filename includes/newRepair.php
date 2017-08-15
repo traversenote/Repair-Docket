@@ -31,6 +31,12 @@
 						<div class="col-md-12"><input class="form-control" type='text' name='product' required></div>
 					</div>
 					<div class='row titleRow'>
+						<div class="col-md-12"><label for="product">Date of Sale:</label></div>
+					</div>
+					<div class='row inputRow'>
+						<div class="col-md-12"><input type="text" name='dos' id="datepicker"></div>
+					</div>
+					<div class='row titleRow'>
 						<div class="col-md-12"><label for="fault">Fault:</label></div>
 					</div>
 					<div class='row inputRow'>

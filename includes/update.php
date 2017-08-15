@@ -4,6 +4,7 @@ $name = test_input($_POST["name"]);
 $phone = test_input($_POST["phone"]);
 $email = test_input($_POST["email"]);
 $product = test_input($_POST["product"]);
+$dos = decode_input($_POST["dos"]);
 $fault = test_input($_POST["fault"]);
 $accessories = test_input($_POST["accessories"]);
 $notes = test_input($_POST["notes"]);
@@ -19,7 +20,7 @@ if($status != 'complete'){
     $repairState = 'complete';
 }
 $updates = test_input($_POST["updates"]);
-$query = "update repairs set customer_name='$name', customer_phone='$phone', customer_email='$email', product_name='$product', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', updates='$updates', salesperson='$salesperson', status='$repairState', tested='$tested' , lastUpdate=CURDATE() where repair_ID='$repair_ID'";
+$query = "update repairs set customer_name='$name', customer_phone='$phone', customer_email='$email', product_name='$product', dos='$dos', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', updates='$updates', salesperson='$salesperson', status='$repairState', tested='$tested' , lastUpdate=CURDATE() where repair_ID='$repair_ID'";
 
 if ($conn->query($query) == TRUE) {
 	require 'record.php';

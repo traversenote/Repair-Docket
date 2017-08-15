@@ -28,11 +28,13 @@ function Footer()
     #$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 }
 }
-    
+
 $pdf = new PDF();
 
 
-include 'dbCredentials.php';
+include 'local/dbCredentials.php';
+include 'local/functions.php';
+
 if($_GET["docket"]) {
     $record = $_GET["docket"];
     
@@ -55,6 +57,7 @@ if($_GET["docket"]) {
         $phone = $row["customer_phone"];
         $email = $row["customer_email"];
         $product = $row["product_name"];
+        $dos = $row["dos"];
         $fault = htmlspecialchars_decode($row["product_fault"]);
         $accessories = $row["product_accessories"];
         $date = date('d M Y', strtotime($row["repair_date"]));
@@ -76,13 +79,13 @@ $pdf->SetLeftMargin(30);
 $pdf->AddPage();
 
 $pdf->SetFont('Arial','B',12);
-$pdf->Cell(75,14,'Repair Docket', 1);
+$pdf->Cell(75,12,'Repair Docket', 1);
 $pdf->SetFont('Arial', '', 10);
-$pdf->multiCell(75,7,"The Listening Post Wellington\n150 Willis Street",1);
+$pdf->multiCell(75,6,"$locName\n$locAdd",1);
 
 $pdf->SetFont('Arial', '', 8);
 $pdf->Cell(75,7,"Reference: $repair_ID", 1);
-$pdf->Cell(75,7,'(P)04 385 2919 (W) www.listeningpost.co.nz', 1);
+$pdf->Cell(75,7,"(P)$locPho (W) www.listeningpost.co.nz", 1);
 $pdf->Ln();$pdf->Ln();
 $pdf->Ln();
 $pdf->Cell(75,7,'Customer: ', 1);
@@ -101,6 +104,12 @@ $pdf->Cell(150,7,'Product Details: ', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
 $pdf->multiCell(150,7,"$product", 0);
+$pdf->Ln();
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(150,7,'Date of Sale: ', 0);
+$pdf->Ln();
+$pdf->SetFont('Arial', '', 8);
+$pdf->multiCell(150,7,"$dos", 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
 $pdf->Cell(150,7,'Fault:', 0);
