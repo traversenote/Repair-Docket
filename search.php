@@ -18,13 +18,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta http-equiv='content-type' content='text/html; charset=utf-8'>
-<link rel='stylesheet' href='repairRegister.css' />
-
+<link rel='stylesheet' href='local/repairRegister.css' />
+<script>
+	function change(){
+		document.getElementById('displayFilter').submit();
+	}
+</script>
 <title>Repair Register</title>
 <?php
-    include 'dbCredentials.php';
-    include 'functions.php';
+    include 'local/dbCredentials.php';
+    include 'local/functions.php';
 ?>
+
 </head>
 
 <body>

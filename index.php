@@ -24,6 +24,10 @@
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
+
+	function change(){
+		document.getElementById('displayFilter').submit();
+	}
 </script>
 <title>Repair Register</title>
 <?php
