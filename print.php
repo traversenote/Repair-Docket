@@ -1,6 +1,7 @@
 <?php
 require('includes/fpdf.php');
 
+$terms = file_get_contents('local/repairTerms.txt');
 class PDF extends FPDF
 {
     // Page header
@@ -17,6 +18,7 @@ class PDF extends FPDF
         $this->Ln(30);
 
     }
+
     // Page footer
 function Footer()
 {
@@ -30,7 +32,6 @@ function Footer()
 }
 
 $pdf = new PDF();
-
 
 include 'local/dbCredentials.php';
 include 'local/functions.php';
@@ -91,34 +92,34 @@ $pdf->Ln();
 $pdf->Cell(75,7,'Customer: ', 1);
 $pdf->Cell(75,7,'Date:', 1);
 $pdf->Ln();
-$pdf->Cell(75,7,"$name", 0);
-$pdf->Cell(75,7,"$date", 0);
+$pdf->Cell(75,5,"$name", 0);
+$pdf->Cell(75,5,"$date", 0);
 $pdf->Ln();
-$pdf->Cell(75,7,"$phone", 0);
+$pdf->Cell(75,4,"$phone", 0);
 $pdf->Ln();
-$pdf->Cell(75,7,"$email", 0);
+$pdf->Cell(75,4,"$email", 0);
 $pdf->Ln();
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(150,7,'Product Details: ', 0);
+$pdf->Cell(150,4,'Product Details: ', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
-$pdf->multiCell(150,7,"$product", 0);
+$pdf->multiCell(150,4,"$product", 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(150,7,'Date of Sale: ', 0);
+$pdf->Cell(150,4,'Date of Sale: ', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
-$pdf->multiCell(150,7,"$dos", 0);
+$pdf->multiCell(150,4,"$dos", 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(150,7,'Fault:', 0);
+$pdf->Cell(150,4,'Fault:', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
 $pdf->multiCell(150,4,"$fault", 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(150,7,'Updates as of '.$lastUpdate, 0);
+$pdf->Cell(150,4,'Updates as of '.$lastUpdate, 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
 $pdf->multiCell(150,4,"$updates", 0);
@@ -130,16 +131,24 @@ $pdf->SetFont('Arial', '', 8);
 $pdf->multiCell(150,4,"$accessories", 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(150,7,'Confirmed in Store?', 0);
+$pdf->Cell(150,4,'Confirmed in Store?', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
-$pdf->multiCell(150,7,"$tested", 0);
+$pdf->multiCell(150,4,"$tested", 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', 'B', 8);
-$pdf->Cell(150,7,'You have been dealing with:', 0);
+$pdf->Cell(150,4,'You have been dealing with:', 0);
 $pdf->Ln();
 $pdf->SetFont('Arial', '', 8);
-$pdf->multiCell(150,7,"$salesperson", 0);
+$pdf->multiCell(150,4,"$salesperson", 0);
+$pdf->Ln();
+$pdf->SetFont('Arial', 'B', 8);
+$pdf->Cell(150,4,'Terms of Repair:', 0);
+$pdf->Ln();
+$pdf->SetFont('Arial', '', 8);
+$pdf->multiCell(150,4, $terms, 0);
+$pdf->Ln();
+$pdf->Cell(150,7,'I agree to these terms:', 0);
 if($status != 'active'){
     $pdf->SetFont('Arial', '', 10);
     #$pdf->multiCell(150,7,"This is a reprinted docket. This repair was marked as complete on $completeDate", 0);

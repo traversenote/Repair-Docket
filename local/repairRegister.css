@@ -13,19 +13,19 @@ body {
 	padding: 5px;
 	margin: 5px;
 	font-weight:bold;
-	border-bottom: thin solid #ff99aa;
+	border-bottom: thin solid #99ccff;
 }
 .inputRow{
         padding:5px;
         margin:5px;
 }
 #topNav {
-    background-color: #ff99aa;
+    background-color: #99ccff;
     text-align: center;
 	padding: 10px;
 }
 #bottomNav {
-    background-color: #ff99aa;
+    background-color: #99ccff;
     text-align: center;
 	padding: 10px;
 }
@@ -72,7 +72,7 @@ body {
 	width: 100%;
 	font-size:75px;
 	font-weight: bold;
-	background-color: #ff99aa;
+	background-color: #99ccff;
 }
 input.mobile {
 	height: 1.5em;

@@ -85,7 +85,7 @@
         ?>
 <!--- Displays the Choosers for display priority --->
     <div class="row" id='displayControl'>
-        <form class="form-control" id='displayFilter' action='<?php echo basename($_SERVER['PHP_SELF']); ?>' method='get' onchange='change()'>
+        <form class="form-group" id='displayFilter' action='<?php echo basename($_SERVER['PHP_SELF']); ?>' method='get' onchange='change()'>
 	        <input type="hidden" name=page value='<?php echo $page; ?>'>
 	        <input type='hidden' name='searchQuery' value='<?php echo $searchQuery; ?>'>
 			<div class="col-md-2">

@@ -1,7 +1,7 @@
 <?php
 
-include '../dbCredentials.php';
-include '../functions.php';
+include '../local/dbCredentials.php';
+include '../local/functions.php';
   
 $name = test_input($_POST["name"]);
 $phone = test_input($_POST["phone"]);

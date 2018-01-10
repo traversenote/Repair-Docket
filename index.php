@@ -24,7 +24,6 @@
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
-
 	function change(){
 		document.getElementById('displayFilter').submit();
 	}

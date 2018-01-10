@@ -1,12 +1,12 @@
 <?php
 
-$version = "1.1";
+$version = file_get_contents('local/version.info');
 
 //Site specific variables
 
-$locName = "Wellington Test";
-$locAdd = "100 Test Street";
-$locPho = "04 111 1111";
+$locName = "The Listening Post Wellington";
+$locAdd = "150A Willis Street";
+$locPho = "04 385 2919";
 
 function test_input($data) {
   $data = trim($data);
@@ -24,8 +24,5 @@ function decode_input($data) {
  
 // How long before records should turn red, indicating that they need some attention
 $attentionTime = '-2';
-
-// Script to make entire rows links
-//echo "<script>\nfunction change(){\ndocument.getElementById('displayFilter').submit();\n}\n</script>\n";
 
 ?>

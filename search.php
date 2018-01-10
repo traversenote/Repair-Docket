@@ -29,7 +29,6 @@
     include 'local/dbCredentials.php';
     include 'local/functions.php';
 ?>
-
 </head>
 
 <body>
