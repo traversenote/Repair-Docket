@@ -33,7 +33,8 @@ function Footer()
 
 $pdf = new PDF();
 
-include 'local/dbCredentials.php';
+include $_SERVER['DOCUMENT_ROOT'].'/local/dbCredentials.php';
+include $_SERVER['DOCUMENT_ROOT'].'/local/locals.php';
 include 'local/functions.php';
 
 if($_GET["docket"]) {
@@ -50,7 +51,7 @@ if($_GET["docket"]) {
 
 
     $query = "SELECT * FROM repairs WHERE repair_ID=$record";
-    $result = $conn->query($query);
+    $result = $repairDB->query($query);
     
     while($row = $result->fetch_assoc()) {
         $repair_ID = $row["repair_ID"];

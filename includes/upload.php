@@ -1,6 +1,6 @@
 <?php
 
-include '../local/dbCredentials.php';
+include $_SERVER['DOCUMENT_ROOT'].'/local/dbCredentials.php';
 include '../local/functions.php';
   
 $name = test_input($_POST["name"]);
@@ -15,20 +15,19 @@ $tested = test_input($_POST["tested"]);
 $salesperson = test_input($_POST["salesperson"]);
 $date = date("Y-m-d");
 
-
 $query = "insert into repairs (customer_name, customer_phone, customer_email, repair_date, product_name, dos, product_fault, product_accessories, product_misc, salesperson, tested, status, lastUpdate) values ('$name', '$phone', '$email', '$date', '$product', '$dos', '$fault', '$accessories', '$notes', '$salesperson', '$tested', 'active', '$date')";
 
-$success='0';
+$success='0';echo "Hello";
 
-if ($conn->query($query) == TRUE) {
+if ($repairDB->query($query) == TRUE) {
 	$success='1';
 } else {
 	echo $query;
-	echo "Problem here boss:". $sql. "<br>". $conn->error;
+	echo "Problem here boss:". $sql. "<br>". $repairDB->error;
 }
 
 $query = "SELECT * FROM repairs ORDER BY repair_ID DESC LIMIT 1";
-$result = $conn->query($query);
+$result = $repairDB->query($query);
 while ($row = $result->fetch_assoc()) {
 	$repair_ID = $row["repair_ID"];
 }

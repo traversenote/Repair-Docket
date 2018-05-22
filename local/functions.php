@@ -1,13 +1,5 @@
 <?php
 
-$version = file_get_contents('local/version.info');
-
-//Site specific variables
-
-$locName = "The Listening Post Wellington";
-$locAdd = "150A Willis Street";
-$locPho = "04 385 2919";
-
 function test_input($data) {
   $data = trim($data);
   $data = addslashes($data);

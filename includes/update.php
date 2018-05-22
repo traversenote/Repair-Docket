@@ -22,7 +22,7 @@ if($status != 'complete'){
 $updates = test_input($_POST["updates"]);
 $query = "update repairs set customer_name='$name', customer_phone='$phone', customer_email='$email', product_name='$product', dos='$dos', product_fault='$fault', product_accessories='$accessories', product_misc='$notes', updates='$updates', salesperson='$salesperson', status='$repairState', tested='$tested' , lastUpdate=CURDATE() where repair_ID='$repair_ID'";
 
-if ($conn->query($query) == TRUE) {
+if ($repairDB->query($query) == TRUE) {
 	require 'record.php';
 }
 

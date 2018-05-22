@@ -1,6 +1,6 @@
 <div class="panel" id='titleBar'>The Listening Post <?php echo $location; ?> Repair Register</div>
 <div class="container" id='mainContent'>
-<!---This section handles display control information. Display order, weather completed orders are displayed, etc.--->
+<!--This section handles display control information. Display order, weather completed orders are displayed, etc.-->
 
         <?php
         $page = test_input($_GET['page']);
@@ -83,7 +83,7 @@
             $page = '1';
         }
         ?>
-<!--- Displays the Choosers for display priority --->
+<!-- Displays the Choosers for display priority -->
     <div class="row" id='displayControl'>
         <form class="form-group" id='displayFilter' action='<?php echo basename($_SERVER['PHP_SELF']); ?>' method='get' onchange='change()'>
 	        <input type="hidden" name=page value='<?php echo $page; ?>'>
@@ -133,11 +133,11 @@
         } elseif ($displayMethod =='search') {
        		$query = "SELECT * from repairs WHERE (repair_id LIKE '%$searchQuery%' or customer_name LIKE '%$searchQuery%' or product_name LIKE '%$searchQuery%' or customer_phone LIKE '%$searchQuery%') AND $statusFilter $displayOrder limit $queryOffset, $displayNum";
         }
-        	if ($conn->query($query) == TRUE) {
+        	if ($repairDB->query($query) == TRUE) {
         	}else{
-        		#echo "Problem here boss:". $sql. "<br>". $conn->error;
+        		#echo "Problem here boss:". $sql. "<br>". $repairDB->error;
         	}
-        $result = $conn->query($query);        
+        $result = $repairDB->query($query);        
         while($row = $result->fetch_assoc()) {
           if ($row["status"] != 'complete'){
                 $active = "Active";

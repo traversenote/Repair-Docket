@@ -9,17 +9,17 @@ if($_GET["docket"]) {
         if($status == "complete"){
             $date = date("Y-m-d");
             $query = "UPDATE repairs SET lastUpdate='$date', status='$status', completeDate='$date' where repair_ID=$record";
-            $result = $conn->query($query);
+            $result = $repairDB->query($query);
         }
   		elseif($status == "incomplete"){
   			$date = date("Y-m-d");
   			$query = "UPDATE repairs SET lastUpdate='$date', status='$status', completeDate='$date' where repair_ID=$record";
-  			$result = $conn->query($query); 		
+  			$result = $repairDB->query($query); 		
         }
     }
 
     $query = "SELECT * FROM repairs WHERE repair_ID=$record";
-    $result = $conn->query($query);
+    $result = $repairDB->query($query);
     
     while($row = $result->fetch_assoc()) {
     	$repair_ID = decode_input($row["repair_ID"]);
@@ -137,7 +137,7 @@ if($status != 'complete'){
 
 <div id="bottomNav" class="panel" >
 	<a href="index.php?method=edit&docket=<?php echo $repair_ID ?>" class="fakeButton">Edit this Record</a>
-	<a href='print.php?docket=<?php echo $repair_ID ?>' class="fakeButton">Print to PDF</a>
+	<a href='print.php?docket=<?php echo $repair_ID ?>' target='_blank' class="fakeButton">Print to PDF</a>
 	<?php
 	
 	if($status != "complete"){

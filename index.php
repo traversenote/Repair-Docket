@@ -27,16 +27,19 @@
 	function change(){
 		document.getElementById('displayFilter').submit();
 	}
+	$(document).data('nPage', 'repairs');
 </script>
 <title>Repair Register</title>
+
+</head>
+<div class="container-fluid">
 <?php
-    include 'local/dbCredentials.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/includes/mainNav.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/local/dbCredentials.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/local/locals.php';
     include 'local/functions.php';
 ?>
-</head>
-
 <body>
-<div class="container-fluid">
 	<div class="navbar" id='topNav'>
 		<div class="container">
 			<ul class="nav navbar-nav">
@@ -72,23 +75,7 @@
 			include 'includes/register.php';
 		}
 		?>
-	<div class="container" id='footNav'>
-	<div class="navbar navbar-default">
-	 <ul class="nav navbar-nav">
-	 	<li>
-	 		<a href="about.php"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> The Listening Post</a>
-		</li>
-		<li>
-			<a href="mailto:jason@listeningpost.co.nz">Contact jason@listeningpost.co.nz for any issues.</a>
-		</li>
-	</ul>
-	<ul class="nav navbar-nav navbar-right">
-		<li>
-			<a href="about.php">Version <?php echo $version;?></a>
-		</li>
-	</ul>
-	</div>
-	</div>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php' ?>
 </div>
 </body>
 </html>

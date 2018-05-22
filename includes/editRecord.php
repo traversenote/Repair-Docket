@@ -5,7 +5,7 @@
 if($_GET["docket"]){
     $record =  $_GET["docket"];
     $query = "SELECT * FROM repairs WHERE repair_ID=$record";
-    $result = $conn->query($query);
+    $result = $repairDB->query($query);
     
     while($row = $result->fetch_assoc()) {
         $repair_ID = decode_input($row["repair_ID"]);
